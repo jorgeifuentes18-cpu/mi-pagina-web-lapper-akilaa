@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J2PR6ZJZQM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J2PR6ZJZQM');
+</script>
+<!-- End Google tag -->
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PDGQ9D5T');</script>
+<!-- End Google Tag Manager -->
+
+<title>Lapper Akila — Emo Indie · Puente Alto, Chile</title>
+<meta name="description" content="Lapper Akila, artista de emo indie desde Puente Alto, Chile. Escucha su música, entérate de sus lanzamientos y únete a la comunidad." />
+
+<!-- Open Graph (para que se vea bien al compartir el link) -->
+<meta property="og:title" content="Lapper Akila — Emo Indie" />
+<meta property="og:description" content="Hago emo indie para los que necesitan un lugar donde esconderse." />
+<meta property="og:image" content="images/hero.jpg" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600;1,700;1,800&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ==========================================================================
+   LAPPER AKILA · Landing
+   Paleta: ROSADO FUERTE + BLANCO ROTO + MORADO OSCURO
+   ========================================================================== */
+:root{
+  --pink:      #ff2e9a;   /* rosado fuerte */
+  --pink-soft: #ff72bd;
+  --white:     #f3ece0;   /* blanco roto */
+  --white-dim: #b9aec6;
+  --p-950:     #100320;   /* morado más oscuro (fondo) */
+  --p-900:     #1a0733;
+  --p-800:     #260b4a;
+  --p-700:     #37136b;
+  --line:      rgba(255,46,154,.22);
+  --shadow:    0 24px 60px -20px rgba(0,0,0,.75);
+  --maxw:      1120px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--p-950);
+  color:var(--white);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* Fondo con grano/aura ------------------------------------------------------ */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(900px 600px at 15% -5%, rgba(255,46,154,.20), transparent 60%),
+    radial-gradient(1000px 700px at 100% 10%, rgba(55,19,107,.55), transparent 55%),
+    radial-gradient(800px 800px at 50% 120%, rgba(255,46,154,.10), transparent 60%),
+    var(--p-950);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.mono{font-family:'Space Mono',monospace;letter-spacing:.05em}
+
+/* Etiqueta de sección */
+.eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--pink);display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--pink)}
+
+h2.title{
+  font-family:'Playfair Display',serif;font-weight:800;
+  font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.05;letter-spacing:-.01em;
+  margin-bottom:.5em;
+}
+section{padding:clamp(64px,10vw,120px) 0;position:relative}
+
+/* ==========================================================================
+   NAV
+   ========================================================================== */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:linear-gradient(to bottom, rgba(16,3,32,.85), rgba(16,3,32,.35));
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:'Playfair Display',serif;font-style:italic;font-weight:800;font-size:1.15rem;letter-spacing:.02em}
+.brand span{color:var(--pink)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-family:'Space Mono',monospace;font-size:.8rem;letter-spacing:.06em;color:var(--white-dim);transition:color .2s}
+.nav-links a:hover{color:var(--pink)}
+.nav-social{display:flex;gap:12px;align-items:center}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* Icono social redondo */
+.ic{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--line);background:rgba(255,255,255,.03);
+  color:var(--white);transition:transform .18s, background .2s, color .2s, border-color .2s;
+}
+.ic svg{width:18px;height:18px}
+.ic:hover{transform:translateY(-3px);background:var(--pink);color:#fff;border-color:var(--pink);box-shadow:0 10px 24px -8px var(--pink)}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero{min-height:100svh;display:flex;align-items:flex-end;position:relative;overflow:hidden;padding-bottom:56px}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:saturate(1.05) contrast(1.05)}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, var(--p-950) 4%, rgba(16,3,32,.55) 45%, rgba(16,3,32,.25) 75%, rgba(16,3,32,.55) 100%),
+             linear-gradient(to right, rgba(16,3,32,.65), transparent 60%);
+}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero .kicker{font-family:'Space Mono',monospace;color:var(--pink);letter-spacing:.24em;font-size:.8rem;text-transform:uppercase;margin-bottom:14px}
+.hero h1{
+  font-family:'Playfair Display',serif;font-weight:800;
+  font-size:clamp(3rem,13vw,8rem);line-height:.9;letter-spacing:-.02em;
+  text-shadow:0 6px 40px rgba(0,0,0,.5);
+}
+.hero h1 em{font-style:italic;color:var(--pink)}
+.hero .quote{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:600;
+  font-size:clamp(1.15rem,2.6vw,1.7rem);color:var(--white);
+  max-width:560px;margin:22px 0 4px;line-height:1.35;
+}
+.hero .quote small{display:block;font-style:normal;font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:.1em;color:var(--pink-soft);margin-top:10px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Space Mono',monospace;font-size:.82rem;letter-spacing:.05em;
+  padding:13px 22px;border-radius:999px;border:1px solid var(--pink);
+  transition:transform .18s, background .2s, box-shadow .2s;
+}
+.btn svg{width:16px;height:16px}
+.btn-primary{background:var(--pink);color:#fff;box-shadow:0 14px 30px -12px var(--pink)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px -12px var(--pink)}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--white);border-color:var(--line)}
+.btn-ghost:hover{transform:translateY(-3px);border-color:var(--pink);color:var(--pink)}
+
+/* iconos flotantes en el hero */
+.hero-socials{position:absolute;right:24px;bottom:56px;z-index:3;display:flex;flex-direction:column;gap:12px}
+@media(max-width:760px){.hero-socials{display:none}}
+
+/* ==========================================================================
+   BIO
+   ========================================================================== */
+.bio-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:56px;align-items:center}
+@media(max-width:820px){.bio-grid{grid-template-columns:1fr;gap:36px}}
+.bio-text p{font-size:1.12rem;color:var(--white);margin-bottom:1.1em;max-width:52ch}
+.bio-text p.lead{font-size:1.35rem;line-height:1.5}
+.bio-text .hl{color:var(--pink);font-weight:600}
+.bio-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip{font-family:'Space Mono',monospace;font-size:.74rem;letter-spacing:.08em;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--white-dim)}
+.bio-photo{position:relative}
+.bio-photo img{border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);aspect-ratio:3/4;object-fit:cover}
+.bio-photo .tag{position:absolute;bottom:-14px;left:-14px;background:var(--pink);color:#fff;font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.1em;padding:10px 16px;border-radius:12px;transform:rotate(-3deg);box-shadow:var(--shadow)}
+
+/* ==========================================================================
+   MÚSICA
+   ========================================================================== */
+.tracks{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px;margin-top:14px}
+.track{
+  background:linear-gradient(180deg, rgba(38,11,74,.55), rgba(16,3,32,.55));
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .22s, border-color .22s, box-shadow .22s;
+}
+.track:hover{transform:translateY(-6px);border-color:var(--pink);box-shadow:var(--shadow)}
+.track-cover{position:relative;aspect-ratio:1/1;overflow:hidden}
+.track-cover img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.track:hover .track-cover img{transform:scale(1.05)}
+.track-cover .badge{position:absolute;top:12px;left:12px;background:rgba(16,3,32,.8);backdrop-filter:blur(6px);border:1px solid var(--line);color:var(--pink-soft);font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.12em;padding:6px 11px;border-radius:999px;text-transform:uppercase}
+.track-body{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.track-body h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem}
+.track-body p{color:var(--white-dim);font-size:.98rem;flex:1}
+.track-play{display:inline-flex;align-items:center;gap:9px;color:var(--pink);font-family:'Space Mono',monospace;font-size:.8rem;letter-spacing:.05em;align-self:flex-start;padding-top:4px;border-bottom:1px solid transparent;transition:border-color .2s}
+.track-play:hover{border-color:var(--pink)}
+.track-play svg{width:15px;height:15px}
+
+/* ==========================================================================
+   PRÓXIMAMENTE
+   ========================================================================== */
+.upcoming{
+  position:relative;border-radius:24px;overflow:hidden;
+  border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.upcoming-grid{display:grid;grid-template-columns:1fr 1fr;min-height:420px}
+@media(max-width:820px){.upcoming-grid{grid-template-columns:1fr}}
+.upcoming-media{position:relative;overflow:hidden}
+.upcoming-media img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.upcoming-media::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg, transparent, rgba(16,3,32,.6))}
+.upcoming-content{padding:clamp(28px,4vw,52px);background:linear-gradient(160deg, rgba(55,19,107,.5), rgba(16,3,32,.85));display:flex;flex-direction:column;justify-content:center;gap:14px}
+.upcoming .status{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink);border:1px solid var(--pink);border-radius:999px;padding:7px 15px}
+.upcoming .status .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 0 var(--pink);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,46,154,.6)}70%{box-shadow:0 0 0 10px rgba(255,46,154,0)}100%{box-shadow:0 0 0 0 rgba(255,46,154,0)}}
+.upcoming h3{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1;letter-spacing:-.01em}
+.upcoming p{color:var(--white-dim);font-size:1.05rem;max-width:46ch}
+.upcoming .date{font-family:'Space Mono',monospace;color:var(--pink-soft);font-size:.85rem;letter-spacing:.06em}
+
+/* ==========================================================================
+   DISCORD / COMUNIDAD
+   ========================================================================== */
+.discord{
+  background:linear-gradient(120deg, rgba(88,101,242,.18), rgba(255,46,154,.14));
+  border:1px solid var(--line);border-radius:24px;
+  padding:clamp(34px,5vw,58px);text-align:center;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+}
+.discord h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(1.8rem,5vw,2.8rem)}
+.discord p{color:var(--white-dim);max-width:48ch}
+.discord .btn-primary{margin-top:6px}
+
+/* ==========================================================================
+   LINKS / ESCÚCHAME
+   ========================================================================== */
+.platforms{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:14px}
+.platform{
+  display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:16px;
+  border:1px solid var(--line);background:rgba(255,255,255,.03);
+  transition:transform .18s, border-color .2s, background .2s;
+}
+.platform:hover{transform:translateY(-4px);border-color:var(--pink);background:rgba(255,46,154,.06)}
+.platform .p-ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(16,3,32,.6);border:1px solid var(--line);flex-shrink:0}
+.platform .p-ic svg{width:24px;height:24px}
+.platform .p-name{font-family:'Space Mono',monospace;font-size:.95rem;font-weight:700}
+.platform .p-sub{font-size:.78rem;color:var(--white-dim)}
+.platform .p-arrow{margin-left:auto;color:var(--pink);opacity:0;transform:translateX(-6px);transition:.2s}
+.platform:hover .p-arrow{opacity:1;transform:translateX(0)}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer{border-top:1px solid var(--line);padding:56px 0 40px;text-align:center}
+footer .brand{font-size:1.6rem;margin-bottom:8px}
+.footer-social{display:flex;gap:14px;justify-content:center;margin:22px 0}
+.support{max-width:60ch;margin:26px auto 0;font-size:.85rem;color:var(--white-dim);line-height:1.6;border:1px solid var(--line);border-radius:14px;padding:16px 20px;background:rgba(255,255,255,.02)}
+.support strong{color:var(--pink-soft)}
+.copyright{font-family:'Space Mono',monospace;font-size:.74rem;color:var(--white-dim);letter-spacing:.06em;margin-top:24px}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.upcoming .status .dot{animation:none}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDGQ9D5T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ======================= NAV ======================= -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Lapper <span>Akila</span></a>
+    <nav class="nav-links">
+      <a href="#bio">Bio</a>
+      <a href="#musica">Música</a>
+      <a href="#proximamente">Próximamente</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="#links">Escúchame</a>
+    </nav>
+    <div class="nav-social" id="navSocial"><!-- iconos inyectados por JS --></div>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="images/hero.jpg" alt="Lapper Akila" /></div>
+  <div class="hero-socials" id="heroSocial"><!-- iconos inyectados por JS --></div>
+  <div class="wrap hero-inner">
+    <p class="kicker">Emo Indie · Puente Alto · Chile</p>
+    <h1>LAPPER<br><em>AKILA</em></h1>
+    <p class="quote">"No sé hasta dónde me llevarán mis sueños."
+      <small>— Lapper Akila</small></p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="SPOTIFY_URL" target="_blank" rel="noopener" id="heroSpotify">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.56-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.59 11.67 1.34.36.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.96-1.4a.94.94 0 1 1-.55-1.8c4.36-1.32 9.78-.68 13.49 1.6.44.27.58.85.31 1.29zm.13-3.4C15.79 8.42 8.9 8.2 5.1 9.35a1.12 1.12 0 1 1-.65-2.15C8.82 5.88 16.43 6.14 20.7 8.68a1.12 1.12 0 1 1-1.15 1.93z"/></svg>
+        Escuchar en Spotify
+      </a>
+      <a class="btn btn-ghost" href="#musica">Conocer su música</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BIO ======================= -->
+<section id="bio">
+  <div class="wrap bio-grid">
+    <div class="bio-text reveal">
+      <span class="eyebrow">Quién soy</span>
+      <p class="lead">Soy <span class="hl">Lapper Akila</span>. Tengo 18 años y hago emo indie desde Puente Alto, Chile.</p>
+      <p>Escribo para los que necesitan un lugar donde esconderse — y ese lugar quiero ser yo. Mi música nace de los días más bajos, de las noches en que solo quería desaparecer, y las convierto en canciones para que nadie las tenga que vivir en silencio.</p>
+      <p>Si estás escuchando esto, no estás solo. Este es tu refugio.</p>
+      <div class="bio-facts">
+        <span class="chip">📍 Puente Alto, Chile</span>
+        <span class="chip">🎸 Emo Indie</span>
+        <span class="chip">🎂 18 años</span>
+      </div>
+    </div>
+    <div class="bio-photo reveal">
+      <img src="images/hero.jpg" alt="Lapper Akila" />
+      <span class="tag mono">LAPPER AKILA</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MÚSICA ======================= -->
+<section id="musica">
+  <div class="wrap">
+    <span class="eyebrow reveal">Su música</span>
+    <h2 class="title reveal">Canciones que dolieron<br>al escribirse</h2>
+    <div class="tracks" id="tracks"><!-- tarjetas inyectadas por JS --></div>
+  </div>
+</section>
+
+<!-- ======================= PRÓXIMAMENTE ======================= -->
+<section id="proximamente">
+  <div class="wrap">
+    <span class="eyebrow reveal">Lo que se viene</span>
+    <h2 class="title reveal">Próximo lanzamiento</h2>
+    <div class="upcoming reveal" id="upcoming"><!-- inyectado por JS --></div>
+  </div>
+</section>
+
+<!-- ======================= COMUNIDAD / DISCORD ======================= -->
+<section id="comunidad">
+  <div class="wrap">
+    <div class="discord reveal">
+      <div class="ic" style="width:56px;height:56px;background:#5865F2;border-color:#5865F2;color:#fff;pointer-events:none">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:28px;height:28px"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.25.5a18.3 18.3 0 0 1 4.34 1.35A16.5 16.5 0 0 0 12 3.9a16.5 16.5 0 0 0-7.5.94A18.3 18.3 0 0 1 8.85 3.5L8.6 3a19.8 19.8 0 0 0-4.9 1.4C.9 8.5.14 12.5.5 16.4a20 20 0 0 0 6.06 3.06l.75-1.24a13 13 0 0 1-2.05-.98l.5-.37a14.2 14.2 0 0 0 12.5 0l.5.37c-.65.38-1.34.71-2.06.98l.75 1.24A20 20 0 0 0 23.5 16.4c.42-4.5-.72-8.47-3.2-12zM8.9 14.1c-.98 0-1.78-.9-1.78-2s.79-2 1.78-2c1 0 1.8.9 1.78 2 0 1.1-.79 2-1.78 2zm6.2 0c-.98 0-1.78-.9-1.78-2s.79-2 1.78-2c1 0 1.8.9 1.78 2 0 1.1-.78 2-1.78 2z"/></svg>
+      </div>
+      <h2>Únete al refugio</h2>
+      <p>Mi server de Discord es donde la comunidad se junta: adelantos, conversas, apoyo y las primeras noticias de cada lanzamiento. Entra, no estás solo.</p>
+      <a class="btn btn-primary" href="DISCORD_URL" target="_blank" rel="noopener" id="discordBtn">Entrar al Discord</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= LINKS / ESCÚCHAME ======================= -->
+<section id="links">
+  <div class="wrap">
+    <span class="eyebrow reveal">Escúchame / Sígueme</span>
+    <h2 class="title reveal">Todos mis links</h2>
+    <div class="platforms" id="platforms"><!-- inyectado por JS --></div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <div class="brand">Lapper <span style="color:var(--pink)">Akila</span></div>
+    <div class="footer-social" id="footerSocial"><!-- iconos inyectados por JS --></div>
+    <p class="support">
+      Mi música habla de momentos muy oscuros. Si tú estás pasando por algo así,
+      por favor habla con alguien. En Chile puedes llamar gratis y en cualquier momento a
+      <strong>*4141</strong> (Salud Responde, línea de prevención del suicidio) o al
+      <strong>600 360 7777</strong>. No estás solo — este refugio también es para eso. 🖤
+    </p>
+    <p class="copyright" id="copyright">© <span id="year"></span> Lapper Akila · Puente Alto, Chile</p>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   ⚙️  CONFIGURACIÓN — EDITA SOLO ESTE BLOQUE
+   Aquí cambias tus links, tus canciones y tu próximo lanzamiento.
+   No necesitas tocar nada más del archivo.
+   ========================================================================== */
+
+const CONFIG = {
+
+  /* --- TUS LINKS ---------------------------------------------------------
+     Pega la URL de cada plataforma. Si aún no tienes una, déjala como "search"
+     (busca tu nombre) o pon "" para ocultar ese botón.                       */
+  links: {
+    spotify:    "https://open.spotify.com/intl-es/artist/2qEAa6vSMxI2LqhJPwEdX5?si=jKYgjK8NRdaSdLf_8MYvgA",
+    instagram:  "https://www.instagram.com/lapperakila/",
+    tiktok:     "https://www.tiktok.com/@lapperakila1",
+    discord:    "https://discord.gg/Vyn3N8rVk",
+    appleMusic: "https://music.apple.com/cl/search?term=Lapper%20Akila",   // ← reemplaza con tu perfil real cuando lo tengas
+    youtube:    "https://www.youtube.com/results?search_query=Lapper+Akila" // ← reemplaza con tu canal real cuando lo tengas
+  },
+
+  /* --- TUS CANCIONES -----------------------------------------------------
+     Agrega, quita o edita tarjetas. cover = imagen dentro de la carpeta images/
+     link = a dónde lleva el botón "Escuchar" (déjalo en spotify si no tienes otro) */
+  tracks: [
+    {
+      title: "QMEP",
+      badge: "Single",
+      cover: "images/depresion.jpg",
+      text: "La escribí en uno de los momentos más bajos de mi vida, cuando solo quería no estar en este plano terrestre. Es cruda a propósito: es lo que sentía, sin adornos.",
+      link: "https://open.spotify.com/intl-es/artist/2qEAa6vSMxI2LqhJPwEdX5"
+    },
+    {
+      title: "La Muerte Final",
+      badge: "Single",
+      cover: "images/muerte-final.jpg",
+      text: "Nació del mismo lugar que QMEP. Hablar de la muerte fue mi forma de seguir vivo — ponerle nombre a lo que dolía para no dejar que me ganara.",
+      link: "https://open.spotify.com/intl-es/artist/2qEAa6vSMxI2LqhJPwEdX5"
+    },
+    {
+      title: "Depresión",
+      badge: "EP",
+      cover: "images/depresion.jpg",
+      text: "Mi EP. Todo el proyecto vive en esa etapa oscura: es un diario de los días en que solo quería desaparecer, convertido en canciones para que otros no las vivan solos.",
+      link: "https://open.spotify.com/intl-es/artist/2qEAa6vSMxI2LqhJPwEdX5"
+    }
+  ],
+
+  /* --- PRÓXIMO LANZAMIENTO ----------------------------------------------
+     Edita esto cada vez que se venga algo nuevo.
+     status: el texto de la etiqueta (ej: "Próximamente", "Ya disponible")
+     date:   cuándo sale (o "" para ocultarlo)
+     link / linkText: botón. Déjalo en "" si aún no hay nada que enlazar.     */
+  upcoming: {
+    status: "Próximamente",
+    title:  "Guitarras del Suicidio",
+    subtitle: "EP",
+    text:   "Mi próximo EP. El siguiente capítulo de este refugio — más crudo, más honesto, más mío. Se viene.",
+    date:   "2026",
+    cover:  "images/guitarras-collage.jpg",
+    link:   "",                       // ← cuando haya pre-save o release, pega la URL aquí
+    linkText: "Pre-guardar"
+  }
+};
+
+/* ==========================================================================
+   ⛔  DE AQUÍ HACIA ABAJO NO NECESITAS EDITAR NADA
+   ========================================================================== */
+
+/* --- Iconos SVG de marca --- */
+const ICONS = {
+  spotify:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.56-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.59 11.67 1.34.36.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.96-1.4a.94.94 0 1 1-.55-1.8c4.36-1.32 9.78-.68 13.49 1.6.44.27.58.85.31 1.29zm.13-3.4C15.79 8.42 8.9 8.2 5.1 9.35a1.12 1.12 0 1 1-.65-2.15C8.82 5.88 16.43 6.14 20.7 8.68a1.12 1.12 0 1 1-1.15 1.93z"/></svg>',
+  instagram:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.4-.55.22-.94.47-1.35.88-.41.41-.66.8-.88 1.35-.16.42-.35 1.04-.4 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.4 2.19.22.55.47.94.88 1.35.41.41.8.66 1.35.88.42.16 1.04.35 2.19.4 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.4.55-.22.94-.47 1.35-.88.41-.41.66-.8.88-1.35.16-.42.35-1.04.4-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.4-2.19a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.42-.16-1.04-.35-2.19-.4-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 1 1 0 10.92 5.46 5.46 0 0 1 0-10.92zm0 9a3.54 3.54 0 1 0 0-7.08 3.54 3.54 0 0 0 0 7.08zm5.68-9.15a1.28 1.28 0 1 1-2.56 0 1.28 1.28 0 0 1 2.56 0z"/></svg>',
+  tiktok:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.11v12.63a2.58 2.58 0 0 1-2.58 2.5 2.58 2.58 0 0 1 0-5.16c.27 0 .52.04.77.11v-3.17a5.7 5.7 0 0 0-.77-.05A5.72 5.72 0 1 0 15.5 15.6V9.16a7.34 7.34 0 0 0 4.3 1.38V7.42a4.28 4.28 0 0 1-3.2-1.6z"/></svg>',
+  discord:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.25.5a18.3 18.3 0 0 1 4.34 1.35A16.5 16.5 0 0 0 12 3.9a16.5 16.5 0 0 0-7.5.94A18.3 18.3 0 0 1 8.85 3.5L8.6 3a19.8 19.8 0 0 0-4.9 1.4C.9 8.5.14 12.5.5 16.4a20 20 0 0 0 6.06 3.06l.75-1.24a13 13 0 0 1-2.05-.98l.5-.37a14.2 14.2 0 0 0 12.5 0l.5.37c-.65.38-1.34.71-2.06.98l.75 1.24A20 20 0 0 0 23.5 16.4c.42-4.5-.72-8.47-3.2-12zM8.9 14.1c-.98 0-1.78-.9-1.78-2s.79-2 1.78-2c1 0 1.8.9 1.78 2 0 1.1-.79 2-1.78 2zm6.2 0c-.98 0-1.78-.9-1.78-2s.79-2 1.78-2c1 0 1.8.9 1.78 2 0 1.1-.78 2-1.78 2z"/></svg>',
+  appleMusic:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H6.4A3.4 3.4 0 0 0 3 6.4v11.2A3.4 3.4 0 0 0 6.4 21h11.2a3.4 3.4 0 0 0 3.4-3.4V6.4A3.4 3.4 0 0 0 17.6 3zm-1.4 4.3v7.9c0 1.2-.86 2.02-2.05 2.13-1.2.11-2.1-.72-2.1-1.83 0-.96.68-1.66 1.72-1.8l.9-.13c.3-.05.43-.2.43-.5V9.2l-4.9.98v6.06c0 1.2-.86 2.02-2.05 2.13-1.2.11-2.1-.72-2.1-1.83 0-.96.68-1.66 1.72-1.8l.9-.13c.3-.05.43-.2.43-.5V7.6c0-.5.28-.78.76-.88l6.2-1.25c.5-.1.99.2.99.83v.99z"/></svg>',
+  youtube:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5C0 8.4 0 12 0 12s0 3.6.5 5.5a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.5.5-5.5s0-3.6-.5-5.5zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>',
+  play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
+  arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+};
+
+const META = {
+  spotify:    {name:"Spotify",      sub:"Escúchame aquí"},
+  instagram:  {name:"Instagram",    sub:"@lapperakila"},
+  tiktok:     {name:"TikTok",       sub:"@lapperakila1"},
+  discord:    {name:"Discord",      sub:"Únete al server"},
+  appleMusic: {name:"Apple Music",  sub:"Escúchame aquí"},
+  youtube:    {name:"YouTube",      sub:"Videos & audios"}
+};
+
+const L = CONFIG.links;
+
+/* --- Iconos redondos (nav, hero, footer) --- */
+function socialIcons(){
+  const order = ["instagram","tiktok","spotify","appleMusic","youtube","discord"];
+  return order.filter(k=>L[k]).map(k=>
+    `<a class="ic" href="${L[k]}" target="_blank" rel="noopener" aria-label="${META[k].name}" title="${META[k].name}">${ICONS[k]}</a>`
+  ).join("");
+}
+["navSocial","heroSocial","footerSocial"].forEach(id=>{
+  const el=document.getElementById(id); if(el) el.innerHTML=socialIcons();
+});
+
+/* --- Botones grandes de plataforma --- */
+document.getElementById("platforms").innerHTML =
+  Object.keys(META).filter(k=>L[k]).map(k=>`
+    <a class="platform" href="${L[k]}" target="_blank" rel="noopener">
+      <span class="p-ic">${ICONS[k]}</span>
+      <span>
+        <span class="p-name">${META[k].name}</span><br>
+        <span class="p-sub">${META[k].sub}</span>
+      </span>
+      <span class="p-arrow">${ICONS.arrow}</span>
+    </a>`).join("");
+
+/* --- CTA principales --- */
+if(L.spotify) document.getElementById("heroSpotify").href = L.spotify;
+if(L.discord) document.getElementById("discordBtn").href = L.discord;
+
+/* --- Canciones --- */
+document.getElementById("tracks").innerHTML = CONFIG.tracks.map(t=>`
+  <article class="track reveal">
+    <div class="track-cover">
+      <img src="${t.cover}" alt="${t.title}" loading="lazy" />
+      ${t.badge?`<span class="badge">${t.badge}</span>`:""}
+    </div>
+    <div class="track-body">
+      <h3>${t.title}</h3>
+      <p>${t.text}</p>
+      ${t.link?`<a class="track-play" href="${t.link}" target="_blank" rel="noopener">${ICONS.play} Escuchar</a>`:""}
+    </div>
+  </article>`).join("");
+
+/* --- Próximo lanzamiento --- */
+const u = CONFIG.upcoming;
+document.getElementById("upcoming").innerHTML = `
+  <div class="upcoming-grid">
+    <div class="upcoming-media"><img src="${u.cover}" alt="${u.title}" loading="lazy" /></div>
+    <div class="upcoming-content">
+      <span class="status"><span class="dot"></span>${u.status}</span>
+      ${u.subtitle?`<span class="mono" style="color:var(--pink-soft);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase">${u.subtitle}</span>`:""}
+      <h3>${u.title}</h3>
+      <p>${u.text}</p>
+      ${u.date?`<span class="date">📅 ${u.date}</span>`:""}
+      ${u.link?`<a class="btn btn-primary" style="align-self:flex-start;margin-top:8px" href="${u.link}" target="_blank" rel="noopener">${u.linkText||"Escuchar"}</a>`:""}
+    </div>
+  </div>`;
+
+/* --- Año del footer --- */
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* --- Reveal on scroll --- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
