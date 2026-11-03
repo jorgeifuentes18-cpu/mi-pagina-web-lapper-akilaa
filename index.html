@@ -117,6 +117,7 @@ header.nav{
 .nav-links a:hover{color:var(--pink)}
 .nav-social{display:flex;gap:12px;align-items:center}
 @media(max-width:760px){.nav-links{display:none}}
+@media(min-width:761px) and (max-width:1040px){.nav-social{display:none}}
 
 /* Icono social redondo */
 .ic{
@@ -214,9 +215,8 @@ header.nav{
 }
 .upcoming-grid{display:grid;grid-template-columns:1fr 1fr;min-height:420px}
 @media(max-width:820px){.upcoming-grid{grid-template-columns:1fr}}
-.upcoming-media{position:relative;overflow:hidden}
-.upcoming-media img{width:100%;height:100%;object-fit:cover;min-height:280px}
-.upcoming-media::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg, transparent, rgba(16,3,32,.6))}
+.upcoming-media{display:flex;align-items:center;overflow:hidden;background:#0c0517}
+.upcoming-media img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
 .upcoming-content{padding:clamp(28px,4vw,52px);background:linear-gradient(160deg, rgba(55,19,107,.5), rgba(16,3,32,.85));display:flex;flex-direction:column;justify-content:center;gap:14px}
 .upcoming .status{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink);border:1px solid var(--pink);border-radius:999px;padding:7px 15px}
 .upcoming .status .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 0 var(--pink);animation:pulse 1.8s infinite}
@@ -224,6 +224,47 @@ header.nav{
 .upcoming h3{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1;letter-spacing:-.01em}
 .upcoming p{color:var(--white-dim);font-size:1.05rem;max-width:46ch}
 .upcoming .date{font-family:'Space Mono',monospace;color:var(--pink-soft);font-size:.85rem;letter-spacing:.06em}
+
+/* ==========================================================================
+   REGUETÓN EMO · la única banda rosada de la página
+   ========================================================================== */
+.reg{background:var(--pink);color:var(--p-950)}
+.reg .eyebrow{color:var(--p-950)}
+.reg .eyebrow::before{background:var(--p-950)}
+.reg h2{
+  font-family:'Playfair Display',serif;font-weight:800;
+  font-size:clamp(2.35rem,6.9vw,4.9rem);line-height:1;letter-spacing:-.015em;
+}
+.reg h2 em{display:block;font-style:italic}
+
+/* Patrón de dembow a 95 BPM: bombo en cada negra, caja en 3-3-2 */
+.dembow{--bar:2.526s;display:grid;gap:6px;margin:clamp(28px,4vw,44px) 0}
+.dembow-row{display:grid;grid-template-columns:3.2rem repeat(16,1fr);align-items:center;column-gap:clamp(2px,.6vw,6px)}
+.dembow-row span{font-family:'Space Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.dembow i{
+  display:block;height:clamp(16px,2.6vw,26px);border-radius:3px;background:rgba(16,3,32,.16);
+  animation:step-off var(--bar) linear infinite;animation-delay:calc(var(--i) * var(--bar) / 16);
+}
+.dembow i.on{background:var(--p-950);animation-name:step-on}
+.dembow i:nth-of-type(4n+5){margin-left:clamp(3px,.8vw,10px)}
+@keyframes step-off{0%{background:rgba(16,3,32,.5)}6%,100%{background:rgba(16,3,32,.16)}}
+@keyframes step-on{0%{background:var(--white);transform:scaleY(1.2)}10%,100%{background:var(--p-950);transform:none}}
+
+.reg-grid{display:grid;grid-template-columns:1fr minmax(0,340px);gap:clamp(28px,5vw,64px);align-items:center}
+.reg-info{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.reg-date{font-family:'Space Mono',monospace;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.reg h3{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(2.6rem,6vw,4rem);line-height:1}
+.reg p{font-size:1.12rem;font-weight:500;max-width:46ch}
+.reg .btn{margin-top:10px}
+.reg-cover img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;transform:rotate(2deg);box-shadow:10px 10px 0 var(--p-950)}
+.btn-dark{background:var(--p-950);color:var(--white);border-color:var(--p-950)}
+.btn-dark:hover{transform:translateY(-3px);box-shadow:0 16px 30px -12px var(--p-950)}
+.btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+.reg .btn:focus-visible{outline-color:var(--p-950)}
+@media(max-width:820px){
+  .reg-grid{grid-template-columns:1fr}
+  .reg-cover{order:-1;max-width:340px;padding-right:10px}
+}
 
 /* ==========================================================================
    DISCORD / COMUNIDAD
@@ -268,7 +309,7 @@ footer .brand{font-size:1.6rem;margin-bottom:8px}
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.upcoming .status .dot{animation:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.upcoming .status .dot,.dembow i{animation:none}}
 </style>
 </head>
 <body>
@@ -285,6 +326,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#bio">Bio</a>
       <a href="#musica">Música</a>
       <a href="#proximamente">Próximamente</a>
+      <a href="#reguetonemo">Reguetón Emo</a>
       <a href="#comunidad">Comunidad</a>
       <a href="#links">Escúchame</a>
     </nav>
@@ -345,8 +387,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="proximamente">
   <div class="wrap">
     <span class="eyebrow reveal">Lo que se viene</span>
-    <h2 class="title reveal">Próximo lanzamiento</h2>
+    <h2 class="title reveal">Mi próximo álbum</h2>
     <div class="upcoming reveal" id="upcoming"><!-- inyectado por JS --></div>
+  </div>
+</section>
+
+<!-- ======================= REGUETÓN EMO ======================= -->
+<section id="reguetonemo" class="reg">
+  <div class="wrap">
+    <span class="eyebrow reveal">Nueva canción</span>
+    <h2 class="reveal">EL NUEVO REGUETÓN, <em>EL REGUETÓN EMO</em></h2>
+    <div class="dembow reveal" id="dembow" aria-hidden="true"><!-- inyectado por JS --></div>
+    <div class="reg-grid" id="regEmo"><!-- inyectado por JS --></div>
   </div>
 </section>
 
@@ -442,14 +494,27 @@ const CONFIG = {
      date:   cuándo sale (o "" para ocultarlo)
      link / linkText: botón. Déjalo en "" si aún no hay nada que enlazar.     */
   upcoming: {
-    status: "Próximamente",
-    title:  "Guitarras del Suicidio",
-    subtitle: "EP",
-    text:   "Mi próximo EP. El siguiente capítulo de este refugio — más crudo, más honesto, más mío. Se viene.",
-    date:   "2026",
-    cover:  "images/guitarras-collage.jpg",
-    link:   "",                       // ← cuando haya pre-save o release, pega la URL aquí
-    linkText: "Pre-guardar"
+    status: "1 de diciembre",
+    title:  "Tus ojos me reflejan",
+    subtitle: "Álbum debut colaborativo · con Jahseh",
+    text:   "Este álbum se viene el 1 de diciembre. Es mi primer álbum con Jahseh, nuestro álbum debut colaborativo, y está lleno de sentimientos e historias muy ricas en emoción. Espero lo disfrutes...",
+    date:   "",
+    cover:  "images/tus-ojos-me-reflejan.webp",
+    link:   "https://share.amuse.io/album/lapper-akila-tus-ojos-me-reflejan",
+    linkText: "Hacer pre-save del álbum"
+  },
+
+  /* --- SECCIÓN REGUETÓN EMO ----------------------------------------------
+     La canción que promociona la banda rosada.
+     Cuando ya haya salido, cambia date por "Ya disponible" y linkText por
+     "Escuchar ANCAU". cover puede ser una URL o una imagen de la carpeta images/ */
+  reguetonEmo: {
+    song:  "ANCAU",
+    date:  "Sale el 13 de noviembre",
+    text:  "Mi próxima canción. Es reguetón, pero escrito desde el mismo lugar que el emo: se baila igual y duele distinto. Haz el pre&#8209;save y te llega a tu biblioteca el día que salga.",
+    cover: "https://cdn.amuse.io/9c20c792-48fe-4e62-bbc5-0c077b038d5c.400x400.jpg",
+    link:  "https://share.amuse.io/track/lapper-akila-ancau",
+    linkText: "Hacer pre-save de ANCAU"
   }
 };
 
@@ -525,7 +590,7 @@ document.getElementById("tracks").innerHTML = CONFIG.tracks.map(t=>`
 const u = CONFIG.upcoming;
 document.getElementById("upcoming").innerHTML = `
   <div class="upcoming-grid">
-    <div class="upcoming-media"><img src="${u.cover}" alt="${u.title}" loading="lazy" /></div>
+    <div class="upcoming-media"><img src="${u.cover}" alt="Portada de ${u.title}" loading="lazy" /></div>
     <div class="upcoming-content">
       <span class="status"><span class="dot"></span>${u.status}</span>
       ${u.subtitle?`<span class="mono" style="color:var(--pink-soft);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase">${u.subtitle}</span>`:""}
@@ -535,6 +600,23 @@ document.getElementById("upcoming").innerHTML = `
       ${u.link?`<a class="btn btn-primary" style="align-self:flex-start;margin-top:8px" href="${u.link}" target="_blank" rel="noopener">${u.linkText||"Escuchar"}</a>`:""}
     </div>
   </div>`;
+
+/* --- Reguetón emo --- */
+const R = CONFIG.reguetonEmo;
+document.getElementById("regEmo").innerHTML = `
+  <div class="reg-info reveal">
+    <span class="reg-date">${R.date}</span>
+    <h3>${R.song}</h3>
+    <p>${R.text}</p>
+    <a class="btn btn-dark" href="${R.link}" target="_blank" rel="noopener">${R.linkText}</a>
+  </div>
+  <div class="reg-cover reveal"><img src="${R.cover}" alt="Portada de ${R.song}" loading="lazy" /></div>`;
+
+const DEMBOW = {bombo:[0,4,8,12], caja:[3,6,11,14]};
+document.getElementById("dembow").innerHTML = Object.keys(DEMBOW).map(name=>`
+  <div class="dembow-row"><span>${name}</span>${
+    Array.from({length:16},(_,i)=>`<i class="${DEMBOW[name].includes(i)?"on":""}" style="--i:${i}"></i>`).join("")
+  }</div>`).join("");
 
 /* --- Año del footer --- */
 document.getElementById("year").textContent = new Date().getFullYear();
