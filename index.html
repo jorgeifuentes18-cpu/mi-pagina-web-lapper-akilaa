@@ -34,7 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600;1,700;1,800&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600;1,700;1,800&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&family=Grenze+Gotisch:wght@700&display=swap" rel="stylesheet" />
 
 <style>
 /* ==========================================================================
@@ -306,10 +306,108 @@ footer .brand{font-size:1.6rem;margin-bottom:8px}
 .support strong{color:var(--pink-soft)}
 .copyright{font-family:'Space Mono',monospace;font-size:.74rem;color:var(--white-dim);letter-spacing:.06em;margin-top:24px}
 
+/* ==========================================================================
+   PEQUEÑA ESCUCHA · Tus ojos me reflejan
+   Colores sacados de la portada: tinta violeta, pergamino, oro de luna, sangre
+   ========================================================================== */
+.tp{
+  --ink:#170a26;--parch:#eadbb4;--parch-dim:#b3a587;--gold:#d8b25a;--blood:#b8302a;
+  --tp-line:rgba(234,219,180,.14);
+  color:var(--parch);overflow:hidden;isolation:isolate;
+  background:
+    radial-gradient(620px 460px at 6% 0%, rgba(216,178,90,.16), transparent 62%),
+    radial-gradient(820px 640px at 100% 100%, rgba(184,48,42,.14), transparent 60%),
+    var(--ink);
+  border-block:1px solid var(--tp-line);
+}
+.tp-rain{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.tp .wrap{position:relative;z-index:1}
+.tp-heading{max-width:980px}
+.tp-heading span{display:block}
+.tp-l1,.tp-l2{font-family:'Playfair Display',serif;font-weight:800;line-height:1.08;letter-spacing:.01em}
+.tp-l1{font-size:clamp(1.7rem,4.6vw,3.1rem)}
+.tp-l2{font-size:clamp(.98rem,2.2vw,1.4rem);color:var(--parch-dim);margin-top:.5em;text-shadow:0 1px 10px var(--ink)}
+.tp-l3{font-family:'Grenze Gotisch','Playfair Display',serif;font-weight:700;font-size:clamp(3.4rem,12vw,8.4rem);line-height:.9;margin-top:.12em;text-shadow:0 0 36px rgba(216,178,90,.3),0 3px 0 rgba(0,0,0,.45)}
+.tp-intro{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;margin-top:26px}
+.tp-intro p{color:var(--parch-dim);max-width:44ch;font-size:1rem}
+.btn-parch{background:var(--parch);color:var(--ink);border-color:var(--parch);font-weight:700}
+.btn-parch:hover{transform:translateY(-3px);box-shadow:0 16px 34px -14px var(--gold)}
+.tp .btn:focus-visible{outline-color:var(--gold)}
+
+.tp-stage{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;margin-top:clamp(40px,6vw,68px)}
+@media(max-width:900px){.tp-stage{grid-template-columns:1fr}.tp-deck{width:100%;max-width:440px}}
+
+/* Sobre del disco + vinilo que sale al dar play */
+.tp-obj{display:block;width:100%;padding:0;border:0;background:none;color:inherit;cursor:pointer;perspective:1100px;border-radius:6px}
+.tp-obj:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
+.tp-tilt{position:relative;display:block;aspect-ratio:1.32/1;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .35s ease-out}
+.tp-halo{position:absolute;left:-6%;top:-8%;width:88%;height:116%;border-radius:50%;background:radial-gradient(closest-side,rgba(216,178,90,.5),transparent);filter:blur(14px);opacity:0;pointer-events:none}
+.tp-vinyl{position:absolute;top:3%;left:2%;width:71.2%;aspect-ratio:1/1;border-radius:50%;transition:transform .8s cubic-bezier(.2,.75,.2,1);box-shadow:0 14px 30px -12px #000}
+.tp-disc{position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle,transparent 0 31%,#120b19 31.5% 33%,transparent 33.5%),
+             repeating-radial-gradient(circle,#0e0914 0 1.5px,#1d1527 1.5px 3px);
+  box-shadow:inset 0 0 0 2px #07040b,0 0 0 1px rgba(234,219,180,.14);
+  animation:tp-spin 1.9s linear infinite;animation-play-state:paused}
+.tp-disc img{position:absolute;left:32%;top:32%;width:36%;height:36%;border-radius:50%;object-fit:cover}
+.tp-disc::after{content:"";position:absolute;left:48.4%;top:48.4%;width:3.2%;height:3.2%;border-radius:50%;background:var(--ink)}
+.tp-shine{position:absolute;inset:0;border-radius:50%;pointer-events:none;background:conic-gradient(from 20deg,transparent 0 8%,rgba(255,255,255,.09) 13%,transparent 19% 50%,rgba(255,255,255,.07) 63%,transparent 69%)}
+@keyframes tp-spin{to{transform:rotate(360deg)}}
+.tp-sleeve{position:absolute;top:0;left:0;width:75.76%;height:100%;overflow:hidden;border-radius:4px;box-shadow:0 30px 50px -24px #000,0 0 0 1px rgba(234,219,180,.22)}
+.tp-sleeve img{width:100%;height:100%;object-fit:cover}
+.tp-glare{position:absolute;inset:0;mix-blend-mode:screen;pointer-events:none;background:radial-gradient(240px circle at var(--gx,13%) var(--gy,12%),rgba(255,230,165,.34),rgba(255,230,165,.07) 45%,transparent 70%)}
+.tp-obj:hover .tp-vinyl{transform:translateX(12%)}
+.tp.is-playing .tp-vinyl{transform:translateX(36%)}
+.tp.is-playing .tp-disc{animation-play-state:running}
+
+.tp-bars{display:block;width:100%;height:40px;margin-top:22px}
+.tp-now{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px}
+.tp-now-meta{min-width:0}
+.tp-now-label{display:block;font-size:.82rem;color:var(--parch-dim)}
+.tp-now-title{display:block;font-family:'Playfair Display',serif;font-weight:700;font-size:1.4rem;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tp-time{display:block;font-family:'Space Mono',monospace;font-size:.76rem;color:var(--parch-dim);font-variant-numeric:tabular-nums;margin-top:2px}
+.tp-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.tp-ctl{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--tp-line);background:rgba(234,219,180,.04);color:var(--parch);cursor:pointer;transition:transform .15s,border-color .2s,background .2s,color .2s}
+.tp-ctl svg{width:16px;height:16px}
+.tp-ctl:hover{border-color:var(--gold);color:var(--gold)}
+.tp-ctl:active{transform:scale(.94)}
+.tp-main{width:58px;height:58px;background:var(--parch);color:var(--ink);border-color:var(--parch)}
+.tp-main svg{width:22px;height:22px}
+.tp-main:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.tp-main .i-pause,.tp.is-playing .tp-main .i-play{display:none}
+.tp.is-playing .tp-main .i-pause{display:block}
+.tp-ctl:focus-visible,.tp-play:focus-visible,.tp-wave:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* Lista de canciones */
+.tp-list{list-style:none;border:1px solid var(--tp-line);border-radius:14px;overflow:hidden;background:rgba(23,10,38,.74);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.tp-row{display:grid;grid-template-columns:42px minmax(0,1fr) minmax(120px,1.35fr) 40px;align-items:center;gap:14px;padding:11px 16px 11px 10px;cursor:pointer;transition:background .2s}
+.tp-row+.tp-row{border-top:1px solid rgba(234,219,180,.08)}
+.tp-row:hover{background:rgba(234,219,180,.05)}
+.tp-row.is-current{background:linear-gradient(90deg,rgba(184,48,42,.3),rgba(184,48,42,0) 75%)}
+.tp-play{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid transparent;background:none;color:var(--parch-dim);cursor:pointer;font:700 .88rem 'Space Mono',monospace}
+.tp-play svg{width:15px;height:15px;display:none}
+.tp-row:hover .tp-play,.tp-row.is-current .tp-play{color:var(--parch)}
+.tp-row:hover .tp-play .n,.tp-row.is-current .tp-play .n{display:none}
+.tp-row:hover .tp-play .i-play,.tp-row.is-current .tp-play .i-play{display:block}
+.tp-row.is-playing .tp-play .i-play{display:none}
+.tp-row.is-playing .tp-play .i-pause{display:block}
+.tp-row.is-current .tp-play{border-color:var(--gold);color:var(--gold)}
+.tp-info{min-width:0}
+.tp-name{display:block;font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tp-feat{display:block;font-size:.8rem;color:var(--parch-dim)}
+.tp-wave{display:block;height:34px;cursor:pointer;touch-action:pan-y;--p:0;--hp:0;
+  background:linear-gradient(90deg,var(--gold) calc(var(--p)*100%),rgba(234,219,180,.62) calc(var(--p)*100%) calc(var(--hp)*100%),rgba(234,219,180,.26) calc(var(--hp)*100%));
+  -webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.tp-dur{font-family:'Space Mono',monospace;font-size:.76rem;color:var(--parch-dim);text-align:right;font-variant-numeric:tabular-nums}
+@media(max-width:560px){
+  .tp-row{grid-template-columns:40px minmax(0,1fr) 38px;row-gap:6px;padding:12px 14px 12px 8px}
+  .tp-wave{grid-column:2 / -1;grid-row:2;height:28px}
+  .tp-dur{grid-column:3;grid-row:1}
+}
+
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.upcoming .status .dot,.dembow i{animation:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.upcoming .status .dot,.dembow i,.tp-disc{animation:none}.tp-vinyl,.tp-tilt{transition:none}}
 </style>
 </head>
 <body>
@@ -389,6 +487,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="eyebrow reveal">Lo que se viene</span>
     <h2 class="title reveal">Mi próximo álbum</h2>
     <div class="upcoming reveal" id="upcoming"><!-- inyectado por JS --></div>
+  </div>
+</section>
+
+<!-- ======================= PEQUEÑA ESCUCHA · TUS OJOS ME REFLEJAN ======================= -->
+<section id="escucha" class="tp" aria-labelledby="tpHeading">
+  <canvas class="tp-rain" id="tpRain" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="tp-head reveal">
+      <h2 class="tp-heading" id="tpHeading">
+        <span class="tp-l1">YA ESCUCHASTE SUSANO</span>
+        <span class="tp-l2">AHORA TE TOCA ESCUCHAR UNA PEQUEÑA ESCUCHA DE</span>
+        <span class="tp-l3">Tus ojos me reflejan</span>
+      </h2>
+      <div class="tp-intro">
+        <a class="btn btn-parch" id="tpSpotify" href="#" target="_blank" rel="noopener"><!-- inyectado por JS --></a>
+        <p id="tpNote"></p>
+      </div>
+    </div>
+
+    <div class="tp-stage reveal">
+      <div class="tp-deck">
+        <button class="tp-obj" id="tpObj" type="button" aria-label="Escuchar la pequeña escucha">
+          <span class="tp-tilt" id="tpTilt">
+            <span class="tp-halo" id="tpHalo"></span>
+            <span class="tp-vinyl">
+              <span class="tp-disc"><img src="images/tus-ojos-me-reflejan.webp" alt="" loading="lazy" /></span>
+              <span class="tp-shine"></span>
+            </span>
+            <span class="tp-sleeve" id="tpSleeve">
+              <img src="images/tus-ojos-me-reflejan.webp" alt="Portada de Tus ojos me reflejan" loading="lazy" />
+              <span class="tp-glare"></span>
+            </span>
+          </span>
+        </button>
+        <canvas class="tp-bars" id="tpBars" aria-hidden="true"></canvas>
+        <div class="tp-now">
+          <div class="tp-now-meta" aria-live="polite">
+            <span class="tp-now-label" id="tpNowLabel"></span>
+            <strong class="tp-now-title" id="tpNowTitle"></strong>
+            <span class="tp-time" id="tpTime">0:00 / 0:30</span>
+          </div>
+          <div class="tp-controls" id="tpControls"><!-- inyectado por JS --></div>
+        </div>
+      </div>
+      <ol class="tp-list" id="tpList"><!-- inyectado por JS --></ol>
+    </div>
   </div>
 </section>
 
@@ -515,6 +659,29 @@ const CONFIG = {
     cover: "https://cdn.amuse.io/9c20c792-48fe-4e62-bbc5-0c077b038d5c.400x400.jpg",
     link:  "https://share.amuse.io/track/lapper-akila-ancau",
     linkText: "Hacer pre-save de ANCAU"
+  },
+
+  /* --- PEQUEÑA ESCUCHA · TUS OJOS ME REFLEJAN ------------------------------
+     Los primeros 30 segundos de cada canción (archivos en la carpeta audio/).
+     title: cambia "Canción 1", "Canción 2"... por el nombre real de cada tema.
+     feat:  invitado extra de esa canción ("" si no tiene).
+     peaks: la forma de onda dibujada; no hace falta tocarla.                   */
+  preview: {
+    spotifySong: "SuSaNo'O",
+    spotifyUrl:  "https://open.spotify.com/intl-es/track/4rnm6eLEvuI2apjsvmYgq1?si=d1bc37b63d434968",
+    note:        "Los primeros 30 segundos de las 8 canciones. Elige una o dale play y suenan seguidas.",
+    releaseText: "El álbum completo sale el 1 de diciembre",
+    rainImage:   "images/tus-ojos-lluvia.webp",
+    tracks: [
+      { title:"Canción 1", feat:"",          src:"audio/tus-ojos-preview-01.mp3", peaks:[39,31,41,26,34,34,30,32,31,31,30,31,34,31,29,41,35,33,29,37,80,38,43,82,100,46,44,43,41,38,79,43,79,78,40,80,37,64,52,33,80,46,44,80,98,58,43,42,50,43,79,46,78,81,38,71,27,19,25,5] },
+      { title:"Canción 2", feat:"",          src:"audio/tus-ojos-preview-02.mp3", peaks:[36,40,47,42,41,43,31,64,60,46,33,30,35,36,46,55,71,67,46,38,74,67,52,49,33,30,75,37,40,44,24,50,70,62,39,42,53,49,36,39,54,50,35,63,57,42,60,47,47,81,62,71,84,100,84,73,44,33,25,13] },
+      { title:"Canción 3", feat:"con Kato",  src:"audio/tus-ojos-preview-03.mp3", peaks:[59,44,59,51,57,46,4,20,27,59,27,4,4,16,37,47,60,12,56,20,36,4,36,39,8,65,55,50,82,67,60,50,78,85,51,68,58,93,72,64,64,76,72,62,66,40,76,55,39,47,95,73,89,95,100,80,65,44,24,11] },
+      { title:"Canción 4", feat:"",          src:"audio/tus-ojos-preview-04.mp3", peaks:[14,23,21,19,17,19,21,16,21,22,22,15,20,21,29,17,26,26,26,20,23,20,18,13,21,24,19,16,23,20,61,75,92,58,78,85,57,48,83,72,89,46,92,87,83,100,86,75,74,62,99,56,53,65,81,85,41,34,27,12] },
+      { title:"Canción 5", feat:"",          src:"audio/tus-ojos-preview-05.mp3", peaks:[35,35,28,23,17,12,9,7,5,33,30,30,22,16,11,8,6,6,94,77,99,29,67,24,26,24,50,89,73,96,37,73,96,80,80,15,85,76,100,45,67,25,19,30,49,84,71,99,51,66,98,76,88,18,52,37,28,16,17,5] },
+      { title:"Canción 6", feat:"",          src:"audio/tus-ojos-preview-06.mp3", peaks:[82,83,75,64,73,76,58,67,87,72,51,69,82,79,63,80,68,80,81,85,100,69,89,78,78,80,84,91,87,59,79,91,72,63,79,100,80,74,84,78,81,72,91,72,70,70,86,78,62,92,97,76,70,81,74,55,24,19,7,4] },
+      { title:"Canción 7", feat:"",          src:"audio/tus-ojos-preview-07.mp3", peaks:[5,4,4,9,14,4,4,27,21,7,4,56,29,49,96,86,27,6,80,71,13,5,85,45,13,49,76,31,69,99,76,27,20,92,58,25,38,84,42,24,68,68,34,82,100,63,24,20,100,46,22,64,71,36,23,68,43,16,28,7] },
+      { title:"Canción 8", feat:"",          src:"audio/tus-ojos-preview-08.mp3", peaks:[55,41,16,4,61,62,96,72,35,39,22,5,21,36,38,61,69,81,60,44,13,67,80,67,83,97,49,44,17,64,70,79,56,75,82,65,41,13,96,83,61,61,90,54,48,18,36,51,45,50,63,100,85,67,44,91,68,48,27,12] }
+    ]
   }
 };
 
@@ -531,6 +698,9 @@ const ICONS = {
   appleMusic:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H6.4A3.4 3.4 0 0 0 3 6.4v11.2A3.4 3.4 0 0 0 6.4 21h11.2a3.4 3.4 0 0 0 3.4-3.4V6.4A3.4 3.4 0 0 0 17.6 3zm-1.4 4.3v7.9c0 1.2-.86 2.02-2.05 2.13-1.2.11-2.1-.72-2.1-1.83 0-.96.68-1.66 1.72-1.8l.9-.13c.3-.05.43-.2.43-.5V9.2l-4.9.98v6.06c0 1.2-.86 2.02-2.05 2.13-1.2.11-2.1-.72-2.1-1.83 0-.96.68-1.66 1.72-1.8l.9-.13c.3-.05.43-.2.43-.5V7.6c0-.5.28-.78.76-.88l6.2-1.25c.5-.1.99.2.99.83v.99z"/></svg>',
   youtube:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5C0 8.4 0 12 0 12s0 3.6.5 5.5a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.5.5-5.5s0-3.6-.5-5.5zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>',
   play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
+  pause:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>',
+  prev:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg>',
+  next:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg>',
   arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 };
 
@@ -617,6 +787,311 @@ document.getElementById("dembow").innerHTML = Object.keys(DEMBOW).map(name=>`
   <div class="dembow-row"><span>${name}</span>${
     Array.from({length:16},(_,i)=>`<i class="${DEMBOW[name].includes(i)?"on":""}" style="--i:${i}"></i>`).join("")
   }</div>`).join("");
+
+/* --- Pequeña escucha: Tus ojos me reflejan --- */
+(function(){
+  const P = CONFIG.preview, T = P.tracks, LEN = 30;
+  const $ = id => document.getElementById(id);
+  const sec = $("escucha");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = matchMedia("(pointer: fine)").matches;
+  const fmt = s => { s = Math.max(0, Math.floor(s||0)); return Math.floor(s/60) + ":" + String(s%60).padStart(2,"0"); };
+  const icon = (name, cls) => ICONS[name].replace("<svg ", `<svg class="${cls}" aria-hidden="true" `);
+  const track = ev => { if (window.gtag) gtag("event", ev.name, ev.params); };
+
+  /* Textos y link a Spotify */
+  const sp = $("tpSpotify");
+  sp.href = P.spotifyUrl;
+  sp.innerHTML = `${ICONS.spotify} Escuchar ${P.spotifySong} en Spotify`;
+  sp.addEventListener("click", () => track({name:"susano_spotify_click", params:{}}));
+  $("tpNote").textContent = `${P.note} ${P.releaseText}.`;
+  $("tpControls").innerHTML = `
+    <button class="tp-ctl" id="tpPrev" type="button" aria-label="Canción anterior">${ICONS.prev}</button>
+    <button class="tp-ctl tp-main" id="tpPlay" type="button" aria-label="Escuchar">${icon("play","i-play")}${icon("pause","i-pause")}</button>
+    <button class="tp-ctl" id="tpNext" type="button" aria-label="Canción siguiente">${ICONS.next}</button>`;
+  const idle = () => { $("tpNowLabel").textContent = `${T.length} canciones, 30 segundos cada una`; $("tpNowTitle").textContent = "Pequeña escucha"; };
+  idle();
+
+  /* Lista de canciones con su forma de onda */
+  const list = $("tpList");
+  list.innerHTML = T.map((t,i) => `
+    <li class="tp-row" data-i="${i}">
+      <button class="tp-play" type="button" aria-label="Escuchar ${t.title}"><span class="n">${i+1}</span>${icon("play","i-play")}${icon("pause","i-pause")}</button>
+      <span class="tp-info"><span class="tp-name">${t.title}</span>${t.feat ? `<span class="tp-feat">${t.feat}</span>` : ""}</span>
+      <span class="tp-wave" role="slider" tabindex="0" aria-label="Avance de ${t.title}" aria-valuemin="0" aria-valuemax="${LEN}" aria-valuenow="0" aria-valuetext="0:00 de 0:30"></span>
+      <span class="tp-dur">0:30</span>
+    </li>`).join("");
+  const rows = [...list.children];
+  const waves = rows.map(r => r.querySelector(".tp-wave"));
+  waves.forEach((w,i) => {
+    const pk = T[i].peaks, vw = pk.length * 2;
+    const rects = pk.map((h,k) => `<rect x='${k*2+.3}' y='${(100-h)/2}' width='1.4' height='${h}' rx='.5'/>`).join("");
+    const mask = `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${vw} 100' preserveAspectRatio='none'>${rects}</svg>`)}")`;
+    w.style.webkitMaskImage = mask; w.style.maskImage = mask;
+  });
+
+  /* Audio: un solo reproductor para las 8 canciones */
+  const audio = new Audio();
+  audio.preload = "none";
+  let cur = -1, actx = null, an = null, bins = null, energy = 0;
+
+  function graph(){
+    if (actx || !/^https?:$/.test(location.protocol)) return;   // con file:// el analizador no recibe datos
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      actx = new AC();
+      const src = actx.createMediaElementSource(audio);
+      an = actx.createAnalyser(); an.fftSize = 256; an.smoothingTimeConstant = .78;
+      src.connect(an); an.connect(actx.destination);
+      bins = new Uint8Array(an.frequencyBinCount);
+    } catch(e){ actx = null; an = null; }
+  }
+  function seekTo(frac){
+    const set = () => { audio.currentTime = Math.min(.999, Math.max(0, frac)) * (audio.duration || LEN); paint(); };
+    if (audio.readyState >= 1) set(); else audio.addEventListener("loadedmetadata", set, {once:true});
+  }
+  function play(i, frac){
+    graph();
+    if (actx && actx.state === "suspended") actx.resume();
+    if (i !== cur){
+      if (cur >= 0){ waves[cur].style.setProperty("--p", 0); rows[cur].classList.remove("is-current","is-playing"); }
+      cur = i;
+      audio.src = T[i].src;
+      rows[i].classList.add("is-current");
+      $("tpNowLabel").textContent = `Canción ${i+1} de ${T.length}`;
+      $("tpNowTitle").textContent = T[i].title;
+      track({name:"preview_play", params:{track_number:i+1, track_title:T[i].title}});
+    }
+    if (frac != null) seekTo(frac);
+    audio.play().catch(() => {});
+  }
+  const toggle = i => (i === cur && !audio.paused) ? audio.pause() : play(i);
+
+  function paint(){
+    if (cur < 0) return;
+    const d = audio.duration || LEN, t = audio.currentTime || 0;
+    const w = waves[cur];
+    w.style.setProperty("--p", Math.min(1, t/d).toFixed(4));
+    w.setAttribute("aria-valuenow", Math.round(t));
+    w.setAttribute("aria-valuetext", `${fmt(t)} de ${fmt(d)}`);
+    $("tpTime").textContent = `${fmt(t)} / ${fmt(d)}`;
+  }
+
+  audio.addEventListener("play", () => { sec.classList.add("is-playing"); rows[cur].classList.add("is-playing"); $("tpPlay").setAttribute("aria-label","Pausar"); kick(); });
+  audio.addEventListener("pause", () => { sec.classList.remove("is-playing"); if (cur >= 0) rows[cur].classList.remove("is-playing"); $("tpPlay").setAttribute("aria-label","Escuchar"); });
+  audio.addEventListener("timeupdate", paint);
+  audio.addEventListener("ended", () => {
+    if (cur < T.length - 1) { play(cur + 1, 0); return; }
+    waves[cur].style.setProperty("--p", 0);
+    rows[cur].classList.remove("is-current","is-playing");
+    cur = -1;
+    $("tpNowLabel").textContent = `Escuchaste las ${T.length}`;
+    $("tpNowTitle").textContent = P.releaseText;
+    $("tpTime").textContent = "0:00 / 0:30";
+  });
+
+  /* Controles */
+  $("tpPlay").addEventListener("click", () => cur < 0 ? play(0) : toggle(cur));
+  $("tpNext").addEventListener("click", () => play((cur + 1) % T.length, 0));
+  $("tpPrev").addEventListener("click", () => {
+    if (cur >= 0 && audio.currentTime > 3) { play(cur, 0); return; }
+    play(cur <= 0 ? T.length - 1 : cur - 1, 0);
+  });
+  $("tpObj").addEventListener("click", () => cur < 0 ? play(0) : toggle(cur));
+  list.addEventListener("click", e => {
+    if (e.target.closest(".tp-wave")) return;
+    const li = e.target.closest(".tp-row");
+    if (li) toggle(+li.dataset.i);
+  });
+
+  /* Forma de onda: pasar el mouse muestra hasta dónde saltas; clic o arrastre salta ahí */
+  waves.forEach((w,i) => {
+    const frac = e => { const r = w.getBoundingClientRect(); return Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); };
+    w.addEventListener("pointermove", e => {
+      if (e.pointerType === "mouse") w.style.setProperty("--hp", frac(e).toFixed(4));
+      if (w.hasPointerCapture && w.hasPointerCapture(e.pointerId) && i === cur) seekTo(frac(e));
+    });
+    w.addEventListener("pointerleave", () => w.style.setProperty("--hp", 0));
+    w.addEventListener("pointerdown", e => {
+      if (e.pointerType === "mouse") { e.preventDefault(); w.setPointerCapture(e.pointerId); }
+      play(i, frac(e));
+    });
+    w.addEventListener("keydown", e => {
+      const k = e.key;
+      if (k === "Enter" || k === " ") { e.preventDefault(); toggle(i); return; }
+      if (!["ArrowLeft","ArrowRight","Home","End"].includes(k)) return;
+      e.preventDefault();
+      if (i !== cur) { play(i, 0); return; }
+      const d = audio.duration || LEN;
+      const t = k === "Home" ? 0 : k === "End" ? d - 1 : audio.currentTime + (k === "ArrowRight" ? 3 : -3);
+      seekTo(t / d);
+    });
+  });
+
+  /* Sobre del disco: se inclina hacia el mouse y la luz de luna lo sigue */
+  const tilt = $("tpTilt"), sleeve = $("tpSleeve"), halo = $("tpHalo");
+  if (fine && !reduce){
+    $("tpObj").addEventListener("pointermove", e => {
+      const r = tilt.getBoundingClientRect(), s = sleeve.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      tilt.style.setProperty("--ry", ((x - .5) * 16).toFixed(2) + "deg");
+      tilt.style.setProperty("--rx", ((.5 - y) * 14).toFixed(2) + "deg");
+      tilt.style.setProperty("--gx", ((e.clientX - s.left) / s.width * 100).toFixed(1) + "%");
+      tilt.style.setProperty("--gy", ((e.clientY - s.top) / s.height * 100).toFixed(1) + "%");
+    });
+    $("tpObj").addEventListener("pointerleave", () => ["--rx","--ry","--gx","--gy"].forEach(k => tilt.style.removeProperty(k)));
+  }
+
+  /* Lluvia de portadas, corazones y destellos (el mouse las aparta, el clic suelta más) */
+  const cv = $("tpRain"), g = cv.getContext("2d");
+  const bc = $("tpBars"), gb = bc.getContext("2d");
+  const img = new Image(); img.src = P.rainImage;
+  const rand = (a,b) => a + Math.random() * (b - a);
+  let W = 0, H = 0, BW = 0, BH = 0, mx = -1e4, my = -1e4, parts = [], base = 0;
+  let running = false, inView = false, last = 0;
+  const lv = new Float32Array(32);
+
+  function make(x, y){
+    const r = Math.random(), z = rand(.3, 1);
+    const kind = r < .6 ? "cover" : r < .82 ? "heart" : "spark";
+    return { kind, z, size: kind === "cover" ? 20 + 50*z : 7 + 11*z,
+             x: x ?? rand(0, W), y: y ?? rand(0, H), vx:0, vy:0,
+             rot: rand(-.6,.6), spin: rand(-.3,.3), vr:0, ph: rand(0, 6.28) };
+  }
+  function seed(){
+    base = Math.round(Math.min(46, Math.max(16, W * H / 26000)));
+    parts = Array.from({length:base}, () => make()).sort((a,b) => a.z - b.z);
+  }
+  function resize(){
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = sec.clientWidth; H = sec.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    BW = bc.clientWidth; BH = bc.clientHeight;
+    bc.width = Math.round(BW * dpr); bc.height = Math.round(BH * dpr);
+    gb.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (!parts.length) seed();
+    zones = quiet.map(el => { const r = el.getBoundingClientRect(), s = sec.getBoundingClientRect(); return {l:r.left - s.left, t:r.top - s.top, r:r.right - s.left, b:r.bottom - s.top}; });
+    if (!running) draw(performance.now());
+  }
+  /* Sobre los textos la lluvia se vuelve casi transparente para que se lean */
+  const quiet = [sec.querySelector(".tp-heading"), sec.querySelector(".tp-intro"), sec.querySelector(".tp-now")];
+  let zones = [];
+  const inQuiet = p => zones.some(z => p.x > z.l - p.size/2 && p.x < z.r + p.size/2 && p.y > z.t - p.size/2 && p.y < z.b + p.size/2);
+
+  function heart(s){
+    g.beginPath();
+    g.moveTo(0, s*.45);
+    g.bezierCurveTo(-s*.95, -s*.1, -s*.45, -s*.8, 0, -s*.3);
+    g.bezierCurveTo(s*.45, -s*.8, s*.95, -s*.1, 0, s*.45);
+    g.fillStyle = "#b8302a"; g.fill();
+    g.lineWidth = 1; g.strokeStyle = "rgba(10,3,18,.8)"; g.stroke();
+  }
+  function spark(s){
+    g.beginPath();
+    g.moveTo(0, -s); g.quadraticCurveTo(0, 0, s*.7, 0); g.quadraticCurveTo(0, 0, 0, s);
+    g.quadraticCurveTo(0, 0, -s*.7, 0); g.quadraticCurveTo(0, 0, 0, -s);
+    g.fillStyle = "#d8b25a"; g.fill();
+  }
+  function step(p, dt, now){
+    const fall = (34 + 80*p.z) * (1 + energy*1.8);
+    const dx = p.x - mx, dy = p.y - my, d = Math.hypot(dx, dy), R = 140;
+    if (d < R && d > .1){
+      const f = (1 - d/R) * (1 - d/R) * 2600 * dt;
+      p.vx += dx/d * f; p.vy += dy/d * f; p.vr += (dx > 0 ? 1 : -1) * f * .01;
+    }
+    const damp = Math.pow(.05, dt);
+    p.vx *= damp; p.vy *= damp; p.vr *= Math.pow(.3, dt);
+    p.x += (Math.sin(now*.0007 + p.ph) * 16 * p.z + p.vx) * dt;
+    p.y += (fall + p.vy) * dt;
+    p.rot += (p.spin + p.vr) * dt;
+    if (p.x < -70) p.x = W + 60; else if (p.x > W + 70) p.x = -60;
+    if (p.y > H + p.size){
+      if (p.temp) { p.dead = true; return; }
+      p.y = -p.size - rand(0, 80); p.x = rand(0, W); p.vx = p.vy = p.vr = 0;
+    }
+  }
+  function draw(now){
+    g.clearRect(0, 0, W, H);
+    for (const p of parts){
+      g.save();
+      g.translate(p.x, p.y); g.rotate(p.rot);
+      p.q = (p.q ?? 1) + ((inQuiet(p) ? .14 : 1) - (p.q ?? 1)) * .12;
+      g.globalAlpha = (.2 + .7*p.z) * p.q;
+      if (p.kind === "cover"){
+        const s = p.size, h = s/2;
+        g.fillStyle = "#eadbb4"; g.fillRect(-h - 1.5, -h - 1.5, s + 3, s + 3);
+        if (img.complete && img.naturalWidth) g.drawImage(img, -h, -h, s, s);
+      } else if (p.kind === "heart") heart(p.size);
+      else spark(p.size * .6);
+      g.restore();
+    }
+  }
+  function drawBars(now){
+    gb.clearRect(0, 0, BW, BH);
+    const n = lv.length, gap = 3, bw = (BW - gap*(n-1)) / n;
+    const playing = !audio.paused && cur >= 0;
+    const prog = cur >= 0 ? (audio.currentTime || 0) / (audio.duration || LEN) : 0;
+    for (let k = 0; k < n; k++){
+      let v = 0;
+      if (playing && an){
+        // escala logarítmica: los graves no se comen todas las barras
+        const M = bins.length * .8;
+        const lo = Math.floor(Math.pow(k/n, 2) * M), hi = Math.max(lo + 1, Math.floor(Math.pow((k+1)/n, 2) * M));
+        let s = 0; for (let b = lo; b < hi; b++) s += bins[b];
+        v = Math.min(1, s / (hi - lo) / 255 * (1 + k/n * .7));
+      } else if (playing) v = .2 + .45 * Math.abs(Math.sin(now/240 + k*.6)) * Math.abs(Math.sin(now/530 + k*.23));
+      lv[k] += (v - lv[k]) * .3;
+      const bh = 2 + lv[k] * (BH - 2);
+      gb.fillStyle = (k + .5) / n <= prog ? "#d8b25a" : "rgba(234,219,180,.32)";
+      gb.fillRect(k * (bw + gap), BH - bh, bw, bh);
+    }
+  }
+  function frame(now){
+    if (!running) return;
+    const dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
+    const playing = !audio.paused && cur >= 0;
+    if (playing && an){
+      an.getByteFrequencyData(bins);
+      let s = 0; for (let k = 1; k < 9; k++) s += bins[k];
+      energy += (s / 8 / 255 - energy) * .35;
+    } else if (playing){
+      energy += ((.35 + .25 * Math.sin(now/180)) - energy) * .2;
+    } else energy *= .92;
+    halo.style.opacity = energy.toFixed(3);
+    if (!reduce){
+      for (const p of parts) step(p, dt, now);
+      if (parts.some(p => p.dead)) parts = parts.filter(p => !p.dead);
+    }
+    draw(now);
+    drawBars(now);
+    if (playing) paint();
+    requestAnimationFrame(frame);
+  }
+  function kick(){
+    const should = inView && !document.hidden && (!reduce || !audio.paused);
+    if (should && !running){ running = true; last = 0; requestAnimationFrame(frame); }
+    else if (!should) running = false;
+  }
+
+  sec.addEventListener("pointermove", e => { const r = sec.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; });
+  sec.addEventListener("pointerleave", () => { mx = my = -1e4; });
+  sec.addEventListener("click", e => {
+    if (reduce || e.target.closest("a,button,.tp-row,.tp-list")) return;
+    const r = sec.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    if (parts.length > base + 40) return;
+    for (let k = 0; k < 8; k++){
+      const p = make(x, y), a = rand(0, Math.PI*2), v = rand(180, 420);
+      p.vx = Math.cos(a) * v; p.vy = Math.sin(a) * v - 120; p.temp = true;
+      parts.push(p);
+    }
+  });
+  img.addEventListener("load", () => { if (!running) draw(performance.now()); });
+  new ResizeObserver(resize).observe(sec);
+  new IntersectionObserver(es => { inView = es[0].isIntersecting; kick(); }, {rootMargin:"120px"}).observe(sec);
+  document.addEventListener("visibilitychange", kick);
+  audio.addEventListener("pause", kick);
+})();
 
 /* --- Año del footer --- */
 document.getElementById("year").textContent = new Date().getFullYear();
