@@ -166,6 +166,7 @@ header.nav{
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px -12px var(--pink)}
 .btn-ghost{background:rgba(255,255,255,.04);color:var(--white);border-color:var(--line)}
 .btn-ghost:hover{transform:translateY(-3px);border-color:var(--pink);color:var(--pink)}
+.btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
 
 /* iconos flotantes en el hero */
 .hero-socials{position:absolute;right:24px;bottom:56px;z-index:3;display:flex;flex-direction:column;gap:12px}
@@ -226,45 +227,63 @@ header.nav{
 .upcoming .date{font-family:'Space Mono',monospace;color:var(--pink-soft);font-size:.85rem;letter-spacing:.06em}
 
 /* ==========================================================================
-   REGUETÓN EMO · la única banda rosada de la página
+   ARCHIVO 02 · el próximo álbum, cifrado en números góticos rotos
+   Negro, blanco roto y rosado. Canción sin audio: rojo y negro.
    ========================================================================== */
-.reg{background:var(--pink);color:var(--p-950)}
-.reg .eyebrow{color:var(--p-950)}
-.reg .eyebrow::before{background:var(--p-950)}
-.reg h2{
-  font-family:'Playfair Display',serif;font-weight:800;
-  font-size:clamp(2.35rem,6.9vw,4.9rem);line-height:1;letter-spacing:-.015em;
+.cx{
+  overflow:hidden;isolation:isolate;
+  background:
+    radial-gradient(760px 420px at 88% 6%, rgba(255,46,154,.07), transparent 62%),
+    radial-gradient(640px 420px at 0% 100%, rgba(55,19,107,.32), transparent 60%),
+    #07030c;
+  border-block:1px solid rgba(243,236,224,.07);
 }
-.reg h2 em{display:block;font-style:italic}
+.cx::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.22) 0 1px,transparent 1px 3px)}
+.cx .wrap{position:relative;z-index:1}
+.cx-label{display:flex;align-items:center;gap:12px;margin-bottom:clamp(22px,3vw,34px);font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(243,236,224,.46)}
+.cx-label b{font-weight:400;color:var(--pink);animation:cx-blink 1.2s steps(1) infinite}
+@keyframes cx-blink{50%{opacity:0}}
+.cx-wall canvas{display:block;image-rendering:pixelated;cursor:crosshair;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.cx.is-error{background:#000}
+.cx.is-error .cx-label{color:#ff2b2b}
 
-/* Patrón de dembow a 95 BPM: bombo en cada negra, caja en 3-3-2 */
-.dembow{--bar:2.526s;display:grid;gap:6px;margin:clamp(28px,4vw,44px) 0}
-.dembow-row{display:grid;grid-template-columns:3.2rem repeat(16,1fr);align-items:center;column-gap:clamp(2px,.6vw,6px)}
-.dembow-row span{font-family:'Space Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.dembow i{
-  display:block;height:clamp(16px,2.6vw,26px);border-radius:3px;background:rgba(16,3,32,.16);
-  animation:step-off var(--bar) linear infinite;animation-delay:calc(var(--i) * var(--bar) / 16);
-}
-.dembow i.on{background:var(--p-950);animation-name:step-on}
-.dembow i:nth-of-type(4n+5){margin-left:clamp(3px,.8vw,10px)}
-@keyframes step-off{0%{background:rgba(16,3,32,.5)}6%,100%{background:rgba(16,3,32,.16)}}
-@keyframes step-on{0%{background:var(--white);transform:scaleY(1.2)}10%,100%{background:var(--p-950);transform:none}}
+/* Pantalla de error: rojo y negro */
+.cx-err{position:absolute;inset:0;z-index:4;overflow:hidden;cursor:pointer;background:rgba(14,0,0,.58);animation:cx-err-in .22s steps(4) both}
+.cx-err[hidden]{display:none}
+.cx-err.out{animation:cx-err-out .26s steps(3) both}
+.cx-err::before{content:"";position:absolute;inset:-46px 0;pointer-events:none;
+  background:
+    repeating-linear-gradient(to bottom,transparent 0 37px,rgba(255,30,30,.24) 37px 41px,transparent 41px 89px,rgba(255,30,30,.55) 89px 91px),
+    repeating-linear-gradient(to bottom,rgba(0,0,0,.5) 0 2px,transparent 2px 4px);
+  animation:cx-bands .7s steps(5) infinite}
+.cx-err::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 180px rgba(255,0,0,.38)}
+.cx-err-box{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;padding:26px 16px;background:#000;border-block:2px solid #ff2b2b;box-shadow:0 0 44px rgba(255,0,0,.4)}
+.cx-err-track{font-family:'Space Mono',monospace;font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;color:#ff2b2b;animation:cx-flick 1.4s steps(1) infinite}
+@keyframes cx-flick{0%,100%{opacity:1}31%{opacity:0}35%{opacity:1}78%{opacity:.25}82%{opacity:1}}
+.cx-err canvas{display:block;max-width:100%;height:auto;image-rendering:pixelated}
+@keyframes cx-bands{to{transform:translateY(46px)}}
+@keyframes cx-err-in{0%{opacity:0;clip-path:inset(48% 0 48% 0)}50%{opacity:1;clip-path:inset(18% 0 32% 0)}100%{opacity:1;clip-path:inset(0)}}
+@keyframes cx-err-out{to{opacity:0;clip-path:inset(50% 0 50% 0)}}
 
-.reg-grid{display:grid;grid-template-columns:1fr minmax(0,340px);gap:clamp(28px,5vw,64px);align-items:center}
-.reg-info{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
-.reg-date{font-family:'Space Mono',monospace;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.reg h3{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(2.6rem,6vw,4rem);line-height:1}
-.reg p{font-size:1.12rem;font-weight:500;max-width:46ch}
-.reg .btn{margin-top:10px}
-.reg-cover img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;transform:rotate(2deg);box-shadow:10px 10px 0 var(--p-950)}
-.btn-dark{background:var(--p-950);color:var(--white);border-color:var(--p-950)}
-.btn-dark:hover{transform:translateY(-3px);box-shadow:0 16px 30px -12px var(--p-950)}
-.btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
-.reg .btn:focus-visible{outline-color:var(--p-950)}
-@media(max-width:820px){
-  .reg-grid{grid-template-columns:1fr}
-  .reg-cover{order:-1;max-width:340px;padding-right:10px}
-}
+/* Reproductor que aparece al encontrar una canción */
+.cx-player{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom));z-index:60;width:min(440px,calc(100% - 32px));transform:translateX(-50%);
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center;padding:12px 16px 12px 12px;
+  background:#07030c;border:1px solid var(--pink);box-shadow:5px 5px 0 rgba(255,46,154,.85),0 24px 50px -14px #000;
+  font-family:'Space Mono',monospace;color:var(--white);animation:cx-pl-in .3s steps(4) both}
+.cx-player[hidden]{display:none}
+.cx-stop{width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(243,236,224,.25);background:none;color:var(--white);cursor:pointer;transition:border-color .2s,color .2s}
+.cx-stop:hover{border-color:var(--pink);color:var(--pink)}
+.cx-stop:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.cx-stop svg{width:14px;height:14px}
+.cx-pmeta{min-width:0;display:grid;gap:7px}
+.cx-ptop{display:flex;justify-content:space-between;gap:10px;font-size:.7rem;letter-spacing:.2em;color:var(--white-dim);font-variant-numeric:tabular-nums}
+.cx-ptop b{font-weight:400;color:var(--pink)}
+.cx-ptitle{display:block;max-width:100%;height:auto;image-rendering:pixelated}
+.cx-pbar{height:7px;--p:0;background:linear-gradient(90deg,var(--pink) calc(var(--p)*100%),rgba(243,236,224,.16) 0);
+  -webkit-mask:repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 7px);mask:repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 7px)}
+@keyframes cx-pl-in{0%{opacity:0;transform:translate(-50%,16px)}50%{opacity:1;transform:translate(-52%,4px)}100%{opacity:1;transform:translate(-50%,0)}}
+.cx-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 
 /* ==========================================================================
    DISCORD / COMUNIDAD
@@ -407,7 +426,7 @@ footer .brand{font-size:1.6rem;margin-bottom:8px}
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.upcoming .status .dot,.dembow i,.tp-disc{animation:none}.tp-vinyl,.tp-tilt{transition:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.upcoming .status .dot,.tp-disc,.cx-label b,.cx-err,.cx-err.out,.cx-err::before,.cx-err-track,.cx-player{animation:none}.tp-vinyl,.tp-tilt{transition:none}}
 </style>
 </head>
 <body>
@@ -424,7 +443,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#bio">Bio</a>
       <a href="#musica">Música</a>
       <a href="#proximamente">Próximamente</a>
-      <a href="#reguetonemo">Reguetón Emo</a>
       <a href="#comunidad">Comunidad</a>
       <a href="#links">Escúchame</a>
     </nav>
@@ -536,15 +554,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ======================= REGUETÓN EMO ======================= -->
-<section id="reguetonemo" class="reg">
+<!-- ======================= ARCHIVO 02 · NÚMEROS CIFRADOS ======================= -->
+<section id="archivo" class="cx" aria-labelledby="cxLabel">
   <div class="wrap">
-    <span class="eyebrow reveal">Nueva canción</span>
-    <h2 class="reveal">EL NUEVO REGUETÓN, <em>EL REGUETÓN EMO</em></h2>
-    <div class="dembow reveal" id="dembow" aria-hidden="true"><!-- inyectado por JS --></div>
-    <div class="reg-grid" id="regEmo"><!-- inyectado por JS --></div>
+    <p class="cx-label reveal" id="cxLabel"><b aria-hidden="true">▚</b><span id="cxLabelText"></span></p>
+    <div class="cx-wall reveal" id="cxWall">
+      <canvas id="cxCanvas" role="img" aria-label="Números rotos"></canvas>
+    </div>
   </div>
+  <div class="cx-err" id="cxErr" hidden>
+    <div class="cx-err-box" id="cxErrBox" role="alert">
+      <span class="cx-err-track" id="cxErrTrack"></span>
+      <canvas id="cxErrCanvas" aria-hidden="true"></canvas>
+      <span class="cx-sr" id="cxErrText"></span>
+    </div>
+  </div>
+  <p class="cx-sr" id="cxLive" aria-live="polite"></p>
 </section>
+<div class="cx-player" id="cxPlayer" role="region" aria-label="Fragmento sonando" hidden>
+  <button class="cx-stop" id="cxStop" type="button" aria-label="Detener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5h14v14H5z"/></svg></button>
+  <div class="cx-pmeta">
+    <span class="cx-ptop"><b id="cxPNum"></b><span id="cxPTime">0:00 / 0:30</span></span>
+    <canvas class="cx-ptitle" id="cxPTitle"></canvas>
+    <span class="cx-pbar" id="cxPBar"></span>
+  </div>
+</div>
 
 <!-- ======================= COMUNIDAD / DISCORD ======================= -->
 <section id="comunidad">
@@ -648,17 +682,35 @@ const CONFIG = {
     linkText: "Hacer pre-save del álbum"
   },
 
-  /* --- SECCIÓN REGUETÓN EMO ----------------------------------------------
-     La canción que promociona la banda rosada.
-     Cuando ya haya salido, cambia date por "Ya disponible" y linkText por
-     "Escuchar ANCAU". cover puede ser una URL o una imagen de la carpeta images/ */
-  reguetonEmo: {
-    song:  "ANCAU",
-    date:  "Sale el 13 de noviembre",
-    text:  "Mi próxima canción. Es reguetón, pero escrito desde el mismo lugar que el emo: se baila igual y duele distinto. Haz el pre&#8209;save y te llega a tu biblioteca el día que salga.",
-    cover: "https://cdn.amuse.io/9c20c792-48fe-4e62-bbc5-0c077b038d5c.400x400.jpg",
-    link:  "https://share.amuse.io/track/lapper-akila-ancau",
-    linkText: "Hacer pre-save de ANCAU"
+  /* --- ARCHIVO 02 · EL PRÓXIMO ÁLBUM CIFRADO EN NÚMEROS ---------------------
+     Cada título aparece cifrado (A=1, B=2 … Z=26; los números, "?" y "!"
+     quedan tal cual), escondido entre números de relleno. No hay instrucciones:
+     al encontrarlo (clic, toque o escribiéndolo con el teclado) se descifra.
+     audio: los 30 s de esa canción en la carpeta audio/. Si lo dejas en "",
+     al encontrarla sale la pantalla roja de error. Cuando tengas el audio de
+     otra canción, pon su archivo aquí y listo.                               */
+  cifrado: {
+    label:     "ARCHIVO_02 · CORRUPTO",
+    labelDone: "ARCHIVO_02 · RECUPERADO",   // cuando alguien encuentra las 15
+    header:    "TRACKLIST",
+    error:     ["!ERROR ERROR!", "AÚN NO..."],
+    tracks: [
+      { title:"PAYASO",                audio:"audio/a2-01.mp3" },
+      { title:"34576",                 audio:"audio/a2-02.mp3" },
+      { title:"CAUSALIDAD",            audio:"audio/a2-03.mp3" },
+      { title:"GLACIAR",               audio:"audio/a2-04.mp3" },
+      { title:"RELOJ",                 audio:"audio/a2-05.mp3" },
+      { title:"WEAS!",                 audio:"audio/a2-06.mp3" },
+      { title:"RE33DENCI11ON",         audio:"audio/a2-07.mp3" },
+      { title:"CANA",                  audio:"audio/a2-08.mp3" },
+      { title:"AJ",                    audio:"" },
+      { title:"SERA?",                 audio:"" },
+      { title:"INTERLUDIO",            audio:"" },
+      { title:"TODOAKABO",             audio:"" },
+      { title:"FINAL?",                audio:"" },
+      { title:"ZZZ",                   audio:"" },
+      { title:"BONUS TRACK FT?? FT??", audio:"" }
+    ]
   },
 
   /* --- PEQUEÑA ESCUCHA · TUS OJOS ME REFLEJAN ------------------------------
@@ -771,23 +823,6 @@ document.getElementById("upcoming").innerHTML = `
     </div>
   </div>`;
 
-/* --- Reguetón emo --- */
-const R = CONFIG.reguetonEmo;
-document.getElementById("regEmo").innerHTML = `
-  <div class="reg-info reveal">
-    <span class="reg-date">${R.date}</span>
-    <h3>${R.song}</h3>
-    <p>${R.text}</p>
-    <a class="btn btn-dark" href="${R.link}" target="_blank" rel="noopener">${R.linkText}</a>
-  </div>
-  <div class="reg-cover reveal"><img src="${R.cover}" alt="Portada de ${R.song}" loading="lazy" /></div>`;
-
-const DEMBOW = {bombo:[0,4,8,12], caja:[3,6,11,14]};
-document.getElementById("dembow").innerHTML = Object.keys(DEMBOW).map(name=>`
-  <div class="dembow-row"><span>${name}</span>${
-    Array.from({length:16},(_,i)=>`<i class="${DEMBOW[name].includes(i)?"on":""}" style="--i:${i}"></i>`).join("")
-  }</div>`).join("");
-
 /* --- Pequeña escucha: Tus ojos me reflejan --- */
 (function(){
   const P = CONFIG.preview, T = P.tracks, LEN = 30;
@@ -851,6 +886,7 @@ document.getElementById("dembow").innerHTML = Object.keys(DEMBOW).map(name=>`
     if (audio.readyState >= 1) set(); else audio.addEventListener("loadedmetadata", set, {once:true});
   }
   function play(i, frac){
+    document.dispatchEvent(new CustomEvent("la-audio", {detail: audio}));   // calla el otro reproductor
     graph();
     if (actx && actx.state === "suspended") actx.resume();
     if (i !== cur){
@@ -1091,6 +1127,467 @@ document.getElementById("dembow").innerHTML = Object.keys(DEMBOW).map(name=>`
   new IntersectionObserver(es => { inView = es[0].isIntersecting; kick(); }, {rootMargin:"120px"}).observe(sec);
   document.addEventListener("visibilitychange", kick);
   audio.addEventListener("pause", kick);
+  document.addEventListener("la-audio", e => { if (e.detail !== audio) audio.pause(); });
+})();
+
+/* --- Archivo 02: el próximo álbum, cifrado en números góticos rotos ---
+   Todo se dibuja en un canvas de baja resolución que el navegador agranda sin
+   suavizar: así la letra gótica queda pixelada. Encima se rompe a propósito
+   (píxeles que faltan, grietas que desplazan los pedazos, franjas glitch). */
+(function(){
+  const C = CONFIG.cifrado;
+  const $ = id => document.getElementById(id);
+  const sec = $("archivo"), wall = $("cxWall"), cv = $("cxCanvas"), g = cv.getContext("2d");
+  const errEl = $("cxErr"), ecv = $("cxErrCanvas"), eg = ecv.getContext("2d", { willReadFrequently: true });
+  const pl = $("cxPlayer"), pt = $("cxPTitle"), ptg = pt.getContext("2d");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ga = (name, params) => { if (window.gtag) gtag("event", name, params || {}); };
+  const FONT = "'Grenze Gotisch','Playfair Display',serif";
+  const BONE = "#f3ece0", PINK = "#ff2e9a", RED = "#ff2b2b", BLOOD = "#6d0000";
+  const POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!";
+  const pad2 = n => String(n).padStart(2, "0");
+  const fmt = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s/60) + ":" + pad2(s % 60); };
+  const plain = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toUpperCase().replace(/\s+/g, " ").trim();
+  const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; };
+  function rng(a){ return () => { a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+  /* Palabras: 0 = TRACKLIST, 1…15 = canciones. A=1 … Z=26; números, ? y ! tal cual */
+  const words = [{ title: C.header, audio: "" }, ...C.tracks].map((t, i) => {
+    const title = plain(t.title), flat = title.replace(/ /g, "");
+    const glyphs = [...title].map(ch => {
+      if (ch === " ") return null;
+      const c = ch.charCodeAt(0);
+      return { n: c >= 65 && c <= 90 ? String(c - 64) : ch, ch };
+    });
+    const keys = [...new Set([flat, flat.replace(/[?!]+$/, ""), title.split(" FT")[0].replace(/ /g, "")])].filter(k => k.length > 1);
+    return { i, title, audio: t.audio || "", glyphs, keys, found: false, t0: 0 };
+  });
+
+  /* Cada número o letra es un sprite: texto gótico sin antialias y con daños */
+  const cache = new Map();
+  function sprite(text, color, v, size){
+    const key = text + "|" + color + "|" + v + "|" + size;
+    let s = cache.get(key); if (s) return s;
+    const P = 3, c = document.createElement("canvas"), x = c.getContext("2d", { willReadFrequently: true });
+    x.font = `700 ${size}px ${FONT}`;
+    const adv = Math.ceil(x.measureText(text).width), w = adv + P*2, h = Math.ceil(size * 1.3) + P*2;
+    c.width = w; c.height = h;
+    x.font = `700 ${size}px ${FONT}`; x.fillStyle = "#fff";
+    x.fillText(text, P, P + Math.round(size * .98));
+    const img = x.getImageData(0, 0, w, h), d = img.data, on = new Uint8Array(w*h), r = rng(hash(key));
+    for (let k = 0; k < w*h; k++) on[k] = d[k*4+3] > 105 ? 1 : 0;
+    const holes = v ? .09 : .035;                                   // píxeles que faltan
+    for (let k = 0; k < w*h; k++) if (on[k] && r() < holes) on[k] = 0;
+    if (v){                                                         // un tajo: una franja corrida 1 px
+      const y0 = P + (r() * size | 0), x0 = P + (r() * adv * .7 | 0), dir = r() < .5 ? 1 : -1;
+      for (let yy = y0; yy < Math.min(h, y0 + 1 + (r() * 2 | 0)); yy++){
+        const row = on.slice(yy*w, yy*w + w);
+        for (let xx = x0; xx < w; xx++) on[yy*w + xx] = row[xx - dir] || 0;
+      }
+    }
+    if (v === 2){                                                   // un pedazo arrancado
+      const x0 = P + (r() * adv | 0), y0 = P + (r() * size | 0);
+      for (let yy = y0; yy < Math.min(h, y0 + 2); yy++) for (let xx = x0; xx < Math.min(w, x0 + 3); xx++) on[yy*w + xx] = 0;
+    }
+    if (r() < .6) on[(r() * h | 0) * w + (r() * w | 0)] = 1;        // una astilla suelta
+    const [R, G, B] = [1, 3, 5].map(o => parseInt(color.slice(o, o + 2), 16));
+    for (let k = 0; k < w*h; k++){ const o = k*4; d[o] = R; d[o+1] = G; d[o+2] = B; d[o+3] = on[k] ? 255 : 0; }
+    x.putImageData(img, 0, 0);
+    s = { c, w, h, adv, P }; cache.set(key, s); return s;
+  }
+
+  /* --- Diseño de la pared: cada fila = una palabra escondida entre relleno --- */
+  let IW = 0, IH = 0, FS = 15, LH = 23, GAP = 9, dpr = 1, tokens = [], lastW = 0, shards = [], cracks = [];
+  const buf = document.createElement("canvas"), bg = buf.getContext("2d");
+  const tint = document.createElement("canvas"), tg = tint.getContext("2d");
+  const tmp = document.createElement("canvas"), mg = tmp.getContext("2d");
+
+  function layout(){
+    const cssW = wall.clientWidth; if (!cssW) return;
+    lastW = cssW;
+    dpr = Math.min(3, window.devicePixelRatio || 1);
+    const small = cssW < 640;
+    FS = small ? 13 : 15;
+    const B = Math.max(2, Math.round((small ? 1.75 : 2.2) * dpr));       // píxeles reales por "pixel"
+    IW = Math.floor(cssW * dpr / B);
+    LH = Math.round(FS * 1.55); GAP = Math.round(FS * .6);
+    const R = rng(0x0A1B2 + IW);
+    const adv = n => sprite(n, BONE, 0, FS).adv;
+    const noise = () => String(R() < .6 ? 1 + (R() * 26 | 0) : 27 + (R() * 73 | 0));
+    const mk = (n, kind, wi, ch, k) => ({ n, kind, wi, ch: ch || "", k: k || 0, a: .38 + R() * .52, v: R() * 3 | 0, leak: 0, flick: 0, jx: 0, x: 0, y: 0, w: adv(n) });
+    tokens = [];
+    let y = 0, x = 0, line = [];
+    const flush = () => {
+      if (line.length > 1){                                       // justificar: bloque parejo
+        const end = line[line.length - 1].x + line[line.length - 1].w, extra = IW - end;
+        line.forEach((t, k) => t.x += Math.round(extra * k / (line.length - 1)));
+      }
+      tokens.push(...line); line = []; x = 0; y += LH;
+    };
+    const put = (t, gap) => {
+      const g0 = line.length ? (gap ?? GAP) : 0;
+      if (line.length && x + g0 + t.w > IW) flush();
+      t.x = line.length ? x + g0 : 0; t.y = y; x = t.x + t.w; line.push(t);
+    };
+    words.forEach((wd, wi) => {
+      if (wi) put(mk(String(wi), "idx", wi));                   // el número de pista, camuflado
+      let ww = 0; wd.glyphs.forEach(gl => ww += gl ? adv(gl.n) + GAP : GAP * 2);
+      const room = IW - x - ww - GAP;
+      const target = Math.min(IW * .96, room > 0 ? x + R() * room : x + R() * IW * .3);
+      for (let guard = 0; guard < 60; guard++){
+        const t = mk(noise(), "noise", wi);
+        if (x + GAP + t.w > target) break;
+        put(t);
+      }
+      let extra = 0, k = 0;
+      wd.glyphs.forEach(gl => {
+        if (!gl){ extra = GAP * 2; return; }
+        put(mk(gl.n, "word", wi, gl.ch, k++), GAP + extra); extra = 0;
+      });
+      for (let guard = 0; guard < 60; guard++){                   // rellenar hasta el borde
+        const t = mk(noise(), "noise", wi);
+        if (x + GAP + t.w > IW) break;
+        put(t);
+      }
+      flush();
+    });
+    IH = y + Math.round(LH * .25);
+    cv.width = buf.width = tint.width = tmp.width = IW;
+    cv.height = buf.height = tint.height = IH; tmp.height = LH * 2;
+    cv.style.width = (IW * B / dpr) + "px"; cv.style.height = (IH * B / dpr) + "px";
+    makeCracks();
+    render(performance.now());
+  }
+
+  /* Grietas: un impacto con rayos; cada pedazo queda corrido 1 px */
+  function makeCracks(){
+    const R = rng(0xC0FFEE);
+    const cx = Math.round(IW * (.64 + R() * .18)), cy = Math.round(Math.min(IH * .4, LH * (1.6 + R() * 2)));
+    const n = 7, rays = [];
+    for (let i = 0; i < n; i++){
+      const base = (i + R() * .6) / n * Math.PI * 2, pts = [[cx, cy]];
+      let x = cx, y = cy;
+      for (let s = 0; s < 500; s++){
+        const a = base + (R() - .5) * .45, st = 5 + R() * 12;
+        x += Math.cos(a) * st; y += Math.sin(a) * st;
+        if (x <= 0 || x >= IW || y <= 0 || y >= IH){ x = Math.max(0, Math.min(IW, x)); y = Math.max(0, Math.min(IH, y)); pts.push([x, y]); break; }
+        pts.push([Math.round(x), Math.round(y)]);
+      }
+      rays.push({ a: Math.atan2(y - cy, x - cx), pts });
+    }
+    rays.sort((p, q) => p.a - q.a);
+    const corners = [[0, 0], [IW, 0], [IW, IH], [0, IH]].map(p => ({ p, a: Math.atan2(p[1] - cy, p[0] - cx) }));
+    shards = rays.map((r0, i) => {
+      const r1 = rays[(i + 1) % n];
+      let a0 = r0.a, a1 = r1.a; if (a1 <= a0) a1 += Math.PI * 2;
+      const cs = corners.map(c => ({ p: c.p, a: c.a < a0 ? c.a + Math.PI * 2 : c.a })).filter(c => c.a > a0 && c.a < a1).sort((p, q) => p.a - q.a).map(c => c.p);
+      const m = (a0 + a1) / 2, k = R() < .3 ? 0 : 1;
+      return { poly: [...r0.pts, ...cs, ...r1.pts.slice().reverse()], dx: Math.round(Math.cos(m) * k), dy: Math.round(Math.sin(m) * k) };
+    });
+    cracks = [];
+    const seg = (x0, y0, x1, y1) => {
+      x0 |= 0; y0 |= 0; x1 |= 0; y1 |= 0;
+      const dx = Math.abs(x1 - x0), sx = x0 < x1 ? 1 : -1, dy = -Math.abs(y1 - y0), sy = y0 < y1 ? 1 : -1;
+      let e = dx + dy;
+      for (let s = 0; s < 4000; s++){
+        cracks.push(x0, y0);
+        if (x0 === x1 && y0 === y1) break;
+        const e2 = 2 * e;
+        if (e2 >= dy){ e += dy; x0 += sx; }
+        if (e2 <= dx){ e += dx; y0 += sy; }
+      }
+    };
+    rays.forEach(r => r.pts.forEach((p, k) => k && seg(r.pts[k-1][0], r.pts[k-1][1], p[0], p[1])));
+    const ring = rays.map(r => r.pts[Math.min(2, r.pts.length - 1)]);
+    ring.forEach((p, i) => { if (R() < .75){ const q = ring[(i + 1) % n]; seg(p[0], p[1], q[0], q[1]); } });
+  }
+
+  /* --- Estado --- */
+  let mx = -1e4, my = -1e4, glitchUntil = 0, nextGlitch = 0, nextLeak = 0, energy = 0;
+  let revealIdx = false, playingWi = -1, errOn = false, errTimer = 0, errDelay = 0;
+  let running = false, inView = false, last = 0;
+
+  function glyphFor(t, now){
+    const wd = words[t.wi];
+    if (t.kind === "word"){
+      if (wd.found){
+        if (now < wd.t0 + 140 + t.k * 75) return [POOL[Math.random() * POOL.length | 0], PINK, 1];   // descifrando
+        return [t.ch, t.wi === playingWi ? PINK : BONE, 1, true];  // descifrada: más grande y sin daño, para leerla
+      }
+      if (t.leak > now) return [t.ch, PINK, 1];                   // se le escapa la letra
+      return [t.n, BONE, t.a];
+    }
+    if (t.kind === "idx" && revealIdx) return [t.n, PINK, .95];
+    return [t.n, BONE, wd.found ? t.a * .3 : t.a];
+  }
+
+  function paintBuf(now){
+    bg.clearRect(0, 0, IW, IH);
+    const top = Math.round((LH - FS * 1.3) / 2), topBig = Math.round((LH - (FS + 2) * 1.3) / 2);
+    for (const t of tokens){
+      const [txt, col, a, big] = glyphFor(t, now), s = big ? sprite(txt, col, 0, FS + 2) : sprite(txt, col, t.v, FS);
+      bg.globalAlpha = t.flick > now && !big ? a * .2 : a;
+      bg.drawImage(s.c, Math.round(t.x + (t.w - s.adv) / 2) - s.P + t.jx, t.y + (big ? topBig : top) - s.P);
+    }
+    bg.globalAlpha = 1;
+  }
+
+  function compose(now){
+    const gl = now < glitchUntil;
+    g.globalCompositeOperation = "source-over"; g.globalAlpha = 1;
+    g.clearRect(0, 0, IW, IH);
+    for (const s of shards){
+      g.save(); g.beginPath();
+      s.poly.forEach((p, k) => k ? g.lineTo(p[0], p[1]) : g.moveTo(p[0], p[1]));
+      g.closePath(); g.clip(); g.drawImage(buf, s.dx, s.dy); g.restore();
+    }
+    g.globalCompositeOperation = "destination-out";               // la grieta corta los números
+    for (let k = 0; k < cracks.length; k += 2) g.fillRect(cracks[k], cracks[k+1], 1, 1);
+    g.globalCompositeOperation = "source-over";
+    g.fillStyle = "rgba(243,236,224,.12)";                        // y brilla apenas, como vidrio
+    for (let k = 0; k < cracks.length; k += 2) g.fillRect(cracks[k] + 1, cracks[k+1], 1, 1);
+    tg.globalCompositeOperation = "source-over"; tg.clearRect(0, 0, IW, IH); tg.drawImage(cv, 0, 0);
+    tg.globalCompositeOperation = "source-in"; tg.fillStyle = errOn ? BLOOD : PINK; tg.fillRect(0, 0, IW, IH);
+    g.globalCompositeOperation = "destination-over";              // sombra rosada corrida (aberración)
+    g.globalAlpha = gl ? .9 : .38; g.drawImage(tint, gl ? -2 : -1, gl ? 1 : 0); g.globalAlpha = 1;
+    g.globalCompositeOperation = "source-over";
+    if (gl){                                                      // franjas que se corren
+      const bands = 2 + (Math.random() * (errOn ? 7 : 4) | 0);
+      for (let b = 0; b < bands; b++){
+        const h = 2 + (Math.random() * LH | 0), y = Math.random() * (IH - h) | 0, dx = (Math.random() - .5) * (errOn ? 44 : 18) | 0;
+        mg.clearRect(0, 0, IW, h); mg.drawImage(cv, 0, y, IW, h, 0, 0, IW, h);
+        g.clearRect(0, y, IW, h); g.drawImage(tmp, 0, 0, IW, h, dx, y, IW, h);
+      }
+    }
+    if (errOn){ g.globalCompositeOperation = "source-atop"; g.fillStyle = RED; g.fillRect(0, 0, IW, IH); g.globalCompositeOperation = "source-over"; }
+  }
+
+  function render(now){ if (IW){ paintBuf(now); compose(now); } }
+
+  /* --- Pantalla de error --- */
+  let EW = 0, EH = 0, errLines = [];
+  function sizeErr(){
+    errLines = sec.clientWidth < 560 ? C.error[0].split(" ") : [C.error[0]];   // en celular, en dos líneas y más grande
+    const bigs = errLines.map(t => sprite(t, RED, 0, 26)), sm = sprite(C.error[1], RED, 0, 19);
+    EW = Math.max(sm.w, ...bigs.map(b => b.w)) + 10;
+    EH = bigs.reduce((h, b) => h + b.h - 6, 0) + 8 + sm.h;
+    ecv.width = EW; ecv.height = EH;
+    const k = Math.max(1, Math.min(Math.floor((sec.clientWidth - 32) * dpr / EW), Math.round(5 * dpr)));
+    ecv.style.width = (EW * k / dpr) + "px";
+  }
+  function drawErr(now){
+    eg.clearRect(0, 0, EW, EH);
+    const v = reduce ? 0 : (now / 90 | 0) % 3;
+    const flash = !reduce && Math.random() < .06;
+    let y = 0;
+    for (const line of errLines){
+      const big = sprite(line, flash ? BONE : RED, v, 26), echo = sprite(line, BLOOD, (v + 1) % 3, 26);
+      const bx = (EW - big.w) / 2 | 0;
+      eg.drawImage(echo.c, bx + 2, y + 1); eg.drawImage(big.c, bx, y);
+      y += big.h - 6;
+    }
+    const sm = sprite(C.error[1], RED, 0, 19), sx = (EW - sm.w) / 2 | 0;
+    if (reduce || (now / 420 | 0) % 4 !== 3) eg.drawImage(sm.c, sx, y + 8);
+    if (!reduce){
+      for (let b = 0; b < 2 + (Math.random() * 3 | 0); b++){
+        const h = 1 + (Math.random() * 5 | 0), y = Math.random() * (EH - h) | 0, dx = (Math.random() - .5) * 14 | 0;
+        const strip = eg.getImageData(0, y, EW, h); eg.clearRect(0, y, EW, h); eg.putImageData(strip, dx, y);
+      }
+    }
+  }
+  function showError(wi){
+    stop();
+    errOn = true; sizeErr();
+    $("cxErrTrack").textContent = `${pad2(wi)} · ${words[wi].title}`;
+    $("cxErrText").textContent = `${C.error[0]} ${C.error[1]}`;
+    const r = sec.getBoundingClientRect();
+    const top = Math.max(0, -r.top), bot = Math.min(r.height, innerHeight - r.top);
+    $("cxErrBox").style.top = ((top + bot) / 2) + "px";
+    errEl.classList.remove("out"); errEl.hidden = false;
+    sec.classList.add("is-error");
+    glitchUntil = performance.now() + 450;
+    clearTimeout(errTimer); errTimer = setTimeout(hideError, 3800);
+    announce(`${words[wi].title}. ${C.error[0]} ${C.error[1]}`);
+    ga("a2_error", { track_number: wi, track_title: words[wi].title });
+    kick();
+  }
+  function hideError(){
+    if (!errOn) return;
+    clearTimeout(errTimer); errEl.classList.add("out");
+    setTimeout(() => { errOn = false; errEl.hidden = true; errEl.classList.remove("out"); sec.classList.remove("is-error"); kick(); }, reduce ? 0 : 260);
+  }
+  errEl.addEventListener("click", hideError);
+
+  /* --- Audio: 30 s por canción; un ruido digital cuando aún no hay audio --- */
+  const audio = new Audio(); audio.preload = "none";
+  let actx = null, an = null, bins = null;
+  function ctx(){
+    if (!actx){ try { actx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e){ return null; } }
+    if (actx.state === "suspended") actx.resume();
+    return actx;
+  }
+  function graph(){
+    if (an || !/^https?:$/.test(location.protocol)) return;     // con file:// el analizador no recibe datos
+    const ac = ctx(); if (!ac) return;
+    try {
+      const src = ac.createMediaElementSource(audio);
+      an = ac.createAnalyser(); an.fftSize = 256; an.smoothingTimeConstant = .55;
+      src.connect(an); an.connect(ac.destination); bins = new Uint8Array(an.frequencyBinCount);
+    } catch(e){ an = null; }
+  }
+  function buzz(delay){
+    const ac = ctx(); if (!ac) return;
+    const sr = ac.sampleRate, len = Math.floor(sr * .5), b = ac.createBuffer(1, len, sr), d = b.getChannelData(0);
+    let v = 0;
+    for (let k = 0; k < len; k++){
+      const seg = k / (sr * .045) | 0, hold = [18, 60, 6, 140, 30][seg % 5];
+      if (k % hold === 0) v = Math.random() < .5 ? -.9 : .9;
+      d[k] = (seg * 7919) % 5 ? v * (1 - k / len) : 0;
+    }
+    const s = ac.createBufferSource(), gn = ac.createGain();
+    s.buffer = b; gn.gain.value = .09; s.connect(gn); gn.connect(ac.destination);
+    s.start(ac.currentTime + (delay || 0) / 1000);
+  }
+  function showPlayer(wi){
+    const s = sprite(words[wi].title, PINK, 0, 14), k = Math.max(1, Math.round(2 * dpr));
+    pt.width = s.w; pt.height = s.h; ptg.clearRect(0, 0, s.w, s.h); ptg.drawImage(s.c, 0, 0);
+    pt.style.width = (s.w * k / dpr) + "px";
+    $("cxPNum").textContent = pad2(wi);
+    $("cxPTime").textContent = "0:00 / 0:30";
+    $("cxPBar").style.setProperty("--p", 0);
+    pl.setAttribute("aria-label", `Sonando ${words[wi].title}, 30 segundos`);
+    pl.hidden = false;
+  }
+  function play(wi){
+    document.dispatchEvent(new CustomEvent("la-audio", { detail: audio }));
+    if (playingWi === wi && !audio.paused){ stop(); return; }
+    graph(); ctx();
+    playingWi = wi;
+    audio.src = words[wi].audio;
+    audio.play().catch(() => {});
+    showPlayer(wi);
+    announce(`${words[wi].title}. Suenan 30 segundos.`);
+    ga("a2_play", { track_number: wi, track_title: words[wi].title });
+  }
+  function stop(){ audio.pause(); playingWi = -1; pl.hidden = true; }
+  audio.addEventListener("timeupdate", () => {
+    const d = audio.duration || 30, t = audio.currentTime || 0;
+    $("cxPBar").style.setProperty("--p", Math.min(1, t / d).toFixed(4));
+    $("cxPTime").textContent = `${fmt(t)} / ${fmt(d)}`;
+  });
+  audio.addEventListener("ended", stop);
+  $("cxStop").addEventListener("click", stop);
+  document.addEventListener("la-audio", e => { if (e.detail !== audio && !audio.paused) stop(); });
+
+  /* --- Encontrar una palabra --- */
+  const live = $("cxLive");
+  const announce = s => { live.textContent = ""; setTimeout(() => { live.textContent = s; }, 40); };
+  function hit(wi){
+    const wd = words[wi], now = performance.now();
+    let delay = 0;
+    if (!wd.found){
+      wd.found = true; wd.t0 = now;
+      delay = reduce ? 0 : 200 + wd.glyphs.filter(Boolean).length * 75;
+      ga("a2_found", { track_number: wi, track_title: wd.title });
+      if (words.every(w => w.found || w.i === 0)) $("cxLabelText").textContent = C.labelDone;
+    }
+    glitchUntil = now + 160;
+    if (wi === 0){ revealIdx = true; announce(wd.title); kick(); return; }
+    if (wd.audio) play(wi);
+    else {                                                       // aún no hay audio: error
+      buzz(delay);
+      clearTimeout(errDelay); errDelay = setTimeout(() => showError(wi), delay);
+    }
+    kick();
+  }
+
+  function pick(e){
+    const r = cv.getBoundingClientRect();
+    const x = (e.clientX - r.left) * IW / r.width, y = (e.clientY - r.top) * IH / r.height;
+    let best = null, bd = 1e9;
+    for (const t of tokens){
+      if (y < t.y || y >= t.y + LH) continue;
+      const d = Math.abs(x - (t.x + t.w / 2)) - t.w / 2;
+      if (d < bd){ bd = d; best = t; }
+    }
+    return bd <= GAP * .6 ? best : null;
+  }
+  cv.addEventListener("click", e => {
+    const t = pick(e);
+    if (t && t.kind === "word") hit(t.wi);
+    else if (!reduce) glitchUntil = performance.now() + 120;
+  });
+  cv.addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    const r = cv.getBoundingClientRect();
+    mx = (e.clientX - r.left) * IW / r.width; my = (e.clientY - r.top) * IH / r.height;
+    const t = pick(e);
+    cv.style.cursor = t && t.kind === "word" && words[t.wi].found ? "pointer" : "";
+  });
+  cv.addEventListener("pointerleave", () => { mx = my = -1e4; });
+
+  /* Escribir la palabra descifrada también la encuentra (sin cuadro de texto) */
+  let typed = "";
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && errOn){ hideError(); return; }
+    if (!inView || e.ctrlKey || e.metaKey || e.altKey || !e.key || e.key.length !== 1) return;
+    if (e.target.closest && e.target.closest("input,textarea,select,[contenteditable]")) return;
+    const ch = plain(e.key);
+    if (!/^[A-Z0-9?!]$/.test(ch)) return;
+    typed = (typed + ch).slice(-24);
+    const wd = words.find(w => w.keys.some(k => typed.endsWith(k)));
+    if (wd){ typed = ""; hit(wd.i); }
+  });
+
+  /* --- Animación (solo mientras la sección se ve) --- */
+  function frame(now){
+    if (!running) return;
+    requestAnimationFrame(frame);
+    if (now - last < 33) return;                                 // ~30 fps, más tosco a propósito
+    last = now;
+    if (!audio.paused && an){
+      an.getByteFrequencyData(bins);
+      let s = 0; for (let k = 1; k < 8; k++) s += bins[k];
+      const e = s / 7 / 255;
+      if (!reduce && e - energy > .05 && Math.random() < .75) glitchUntil = now + 50 + Math.random() * 90;
+      energy += (e - energy) * .5;
+    } else if (!audio.paused && !reduce && Math.random() < .05) glitchUntil = now + 70;
+    if (!reduce){
+      if (now > nextLeak){                                       // pista: a veces un número deja ver su letra
+        const hidden = tokens.filter(t => t.kind === "word" && !words[t.wi].found);
+        for (let q = 0; q < (Math.random() < .3 ? 2 : 1) && hidden.length; q++) hidden[Math.random() * hidden.length | 0].leak = now + 110 + Math.random() * 120;
+        nextLeak = now + 1300 + Math.random() * 2300;
+      }
+      if (now > nextGlitch){ glitchUntil = now + 70 + Math.random() * 120; nextGlitch = now + 2600 + Math.random() * 4200; }
+      for (let q = 0; q < 2; q++){ const t = tokens[Math.random() * tokens.length | 0]; if (t) t.flick = now + 50 + Math.random() * 60; }
+      const R2 = (FS * 2.2) ** 2;                               // el mouse hace temblar lo que toca
+      for (const t of tokens){
+        const dx = t.x + t.w / 2 - mx, dy = t.y + LH / 2 - my;
+        if (dx*dx + dy*dy < R2){
+          t.jx = Math.random() < .35 ? (Math.random() < .5 ? -1 : 1) : 0;
+          if (t.kind === "word" && !words[t.wi].found && Math.random() < .07) t.leak = now + 130;
+        } else t.jx = 0;
+      }
+    }
+    render(now);
+    if (errOn) drawErr(now);
+  }
+  function kick(){
+    const should = (inView && !document.hidden) || errOn;
+    if (should && !running){ running = true; last = 0; requestAnimationFrame(frame); }
+    else if (!should) running = false;
+  }
+
+  $("cxLabelText").textContent = C.label;
+  const fontReady = document.fonts && document.fonts.load
+    ? Promise.race([document.fonts.load("700 16px 'Grenze Gotisch'", "0123456789ERROR"), new Promise(r => setTimeout(r, 2500))]).catch(() => {})
+    : Promise.resolve();
+  fontReady.then(() => {
+    cache.clear(); layout();
+    new ResizeObserver(() => { if (wall.clientWidth !== lastW) layout(); }).observe(wall);
+    new IntersectionObserver(es => { inView = es[0].isIntersecting; kick(); }, { rootMargin: "100px" }).observe(sec);
+    document.addEventListener("visibilitychange", kick);
+  });
 })();
 
 /* --- Año del footer --- */
